@@ -656,6 +656,43 @@ section {
     z-index: 1;
 }
 
+/* Person block used in case cards (name + role) */
+.case-card__person {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.case-card__person-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-display);
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.case-card__person-info {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.case-card__person-name {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    color: #fff;
+}
+
+.case-card__person-role {
+    font-size: 0.86rem;
+    color: var(--color-muted);
+}
+
 .case-card:hover::before,
 .case-card:focus-within::before {
     transform: scale(1.03);

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-3hQ5f1jSUnzdg3NofM8JrIoYNewc19hXtOD87o5iV/mQJu1WDV5j1WFJsbgx5caX5/C/PObbIVdQGdbQfQAtXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/home-slider.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <script type="application/ld+json">
@@ -73,6 +74,94 @@
     </header>
 
     <main>
+        <!-- Home slider inserted at top of page -->
+        <section class="home-slider-section">
+            <div class="head">
+                <!-- header area intentionally empty — controls removed to simplify the slider UI -->
+            </div>
+
+            <div class="slider">
+                <div class="track" id="track">
+
+                    <article class="project-card" active>
+                        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/designers.webp" alt="Designers" loading="lazy">
+                        <div class="project-card__content">
+                            <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-designer.webp?w=480" alt="Designer thumb" loading="lazy">
+                            <div>
+                                <h3 class="project-card__title">Designers</h3>
+                                <p class="project-card__desc">Tools that work like you do.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/marketers.webp" alt="Marketers" loading="lazy">
+                        <div class="project-card__content">
+                            <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-marketer.webp?w=480" alt="Marketer thumb" loading="lazy">
+                            <div>
+                                <h3 class="project-card__title">Marketers</h3>
+                                <p class="project-card__desc">Create faster, explore new possibilities.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/filmmakers.webp" alt="VFX filmmakers" loading="lazy">
+                        <div class="project-card__content">
+                            <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-film.webp?w=480" alt="Film thumb" loading="lazy">
+                            <div>
+                                <h3 class="project-card__title">VFX filmmakers</h3>
+                                <p class="project-card__desc">From concept to cut, faster.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/content-creators.webp" alt="Content creators" loading="lazy">
+                        <div class="project-card__content">
+                            <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-content.webp?w=480" alt="Content thumb" loading="lazy">
+                            <div>
+                                <h3 class="project-card__title">Content creators</h3>
+                                <p class="project-card__desc">Make scroll-stopping content, easily.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <img class="project-card__bg" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/art-directors.webp" alt="Art directors" loading="lazy">
+                        <div class="project-card__content">
+                            <img class="project-card__thumb" src="https://cdn-front.freepik.com/home/anon-rvmp/professionals/img-art.webp?w=480" alt="Art thumb" loading="lazy">
+                            <div>
+                                <h3 class="project-card__title">Art directors</h3>
+                                <p class="project-card__desc">Creative control at every stage.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- extra slides added -->
+                    <article class="project-card">
+                        <img class="project-card__bg" src="https://images.unsplash.com/photo-1504386106331-3e4e71712b38?auto=format&fit=crop&w=1600&q=80&fm=webp" alt="Product teams" loading="lazy">
+                        <div class="project-card__content">
+                            <div>
+                                <h3 class="project-card__title">Product teams</h3>
+                                <p class="project-card__desc">Cross-functional teams shipping with velocity.</p>
+                                <button class="project-card__btn">Details</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 'Startups' slide removed per request -->
+
+                </div>
+            </div>
+
+            <!-- dots removed — simplified slider UI -->
+        </section>
         <section class="hero" id="hero">
             <div class="container hero__grid grid">
                 <div class="hero__content" data-sr="fade-up">
@@ -395,6 +484,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-7JZ9eczsQnUnxE27XGr0C+MEY0S8NxV+4CSkiqhSSjMBDuNIQP5CKEM5Qn2ATqNnS/xPbbGr3HdWu3Uw3OZ8kg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="js/home-slider.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/Flowing-menu.js" defer></script>
     <script src="js/scroll.js" defer></script>
