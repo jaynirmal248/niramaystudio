@@ -1,0 +1,83 @@
+/* Motion helpers keep interactions subtle and performant */
+.hero__frame {
+    animation: float 18s ease-in-out infinite;
+}
+
+.hero__badge {
+    animation: pulse 4.4s ease-in-out infinite;
+}
+
+.case-card {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.case-card:hover,
+.case-card:focus-within {
+    box-shadow: 0 24px 48px -24px rgba(28, 32, 54, 0.8);
+}
+
+.service-card {
+    will-change: transform;
+}
+
+.modal.is-active .modal__content {
+    animation: modalIn 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav__toggle.is-active .nav__toggle-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.nav__toggle.is-active .nav__toggle-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav__toggle.is-active .nav__toggle-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@keyframes float {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -14px, 0) scale(1.01);
+    }
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.04);
+        opacity: 0.92;
+    }
+}
+
+@keyframes modalIn {
+    0% {
+        transform: translateY(24px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
