@@ -118,6 +118,20 @@
             if (displayBg) {
                 displayBg.style.backgroundImage = image ? `url('${image}')` : '';
             }
+
+            // populate Visit site button (data-site preferred, fallback to data-link)
+            const siteUrl = item.dataset.site || item.dataset.link || '';
+            const visitEl = display.querySelector('[data-case-visit], [data-testimonial-visit], [data-visit]');
+            if (visitEl && visitEl.tagName === 'A') {
+                if (siteUrl) {
+                    visitEl.href = siteUrl;
+                    visitEl.style.display = '';
+                } else {
+                    visitEl.href = '#';
+                    visitEl.style.display = 'none';
+                }
+            }
+
             if (content && item.id) {
                 content.setAttribute('aria-labelledby', item.id);
             }
@@ -142,6 +156,7 @@
                                 tl.to(displayBg, { opacity: 0.28, duration: 0.48, ease: 'power2.out' }, 0.24)
                                     .fromTo(displayBg, { scale: 1.05 }, { scale: 1, duration: 0.6, ease: 'power3.out' }, 0.24);
                         }
+                    
     }
 
     function syncOverlay(item, { immediate = false } = {}) {
