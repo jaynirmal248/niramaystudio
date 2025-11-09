@@ -1,0 +1,283 @@
+.card-nav-container {
+  /* Make the nav fixed so it doesn't scroll away and so we can offset page content */
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* match the site's container width so side gutters line up */
+  width: min(100% - 2rem, var(--container-max, 1200px));
+  max-width: var(--container-max, 1200px);
+  z-index: 9999;
+  box-sizing: border-box;
+  pointer-events: none; /* allow underlying clicks when closed; inner nav handles interactions */
+}
+
+.card-nav {
+  display: block;
+  height: 64px; /* slightly larger default on modern screens */
+  padding: 0;
+  /* glassy surface */
+  background: linear-gradient(180deg, rgba(20,22,30,0.68), rgba(12,14,20,0.56));
+  color: var(--color-text);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 0.75rem;
+  box-shadow: 0 18px 38px rgba(6,8,18,0.55);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  position: relative;
+  overflow: hidden;
+  will-change: height;
+  transition: height 320ms ease, transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  pointer-events: auto;
+}
+
+.card-nav.open {
+  background: linear-gradient(180deg, rgba(20,22,30,0.82), rgba(12,14,20,0.72));
+  box-shadow: 0 28px 56px rgba(6,8,18,0.65);
+}
+  
+.card-nav-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  z-index: 2;
+}
+  
+.hamburger-menu {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 6px;
+  color: var(--color-text);
+}
+  
+  .hamburger-menu:hover .hamburger-line {
+    opacity: 0.75;
+  }
+
+  .hamburger-menu:focus-visible {
+    outline: 3px solid rgba(113, 99, 255, 0.35);
+    outline-offset: 3px;
+    border-radius: 10px;
+  }
+  
+.hamburger-line {
+  width: 28px;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease, margin 0.3s ease;
+  transform-origin: 50% 50%;
+  border-radius: 2px;
+}
+  
+  .hamburger-menu.open .hamburger-line:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+  
+  .hamburger-menu.open .hamburger-line:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+  
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+  
+  .logo {
+    height: 28px;
+  }
+  
+.card-nav-cta-button {
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: calc(0.75rem - 0.35rem);
+  padding: 0 1.1rem;
+  height: 44px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.card-nav-cta-button:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+  
+.card-nav-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  padding: 0.75rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+  
+.card-nav.open .card-nav-content {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+  
+.nav-card {
+  height: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  border-radius: calc(0.75rem - 0.2rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  gap: 8px;
+  user-select: none;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.02);
+  transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
+  transform: translateY(12px);
+  opacity: 0;
+}
+
+.card-nav.open .nav-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* When the site uses the card nav, add a class to body so page content starts below the nav */
+body.has-card-nav {
+  /* dynamic --card-nav-default-offset is set by JS; fall back to 88px */
+  padding-top: var(--card-nav-default-offset, 88px);
+  transition: padding-top 260ms ease;
+}
+
+/* Larger screens: reduce side gap and make the nav slightly taller */
+@media (min-width: 1280px) {
+  .card-nav-container {
+    width: min(100% - 3rem, var(--container-max, 1200px));
+    max-width: calc(var(--container-max, 1200px) + 40px); /* allow nav to be slightly wider than page container for breathing room */
+  }
+
+  .card-nav {
+    height: 72px;
+  }
+
+  .card-nav-top {
+    height: 72px;
+    padding: 0.65rem 1rem;
+  }
+
+  body.has-card-nav {
+    padding-top: var(--card-nav-default-offset, 96px);
+  }
+}
+  
+.nav-card-label {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.2px;
+  color: var(--color-text);
+}
+  
+.nav-card-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+  
+.nav-card-link {
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.18s ease, opacity 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-muted);
+}
+  
+.nav-card-link:hover {
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-nav,
+  .card-nav-content,
+  .nav-card {
+    transition: none !important;
+  }
+}
+  
+@media (max-width: 1024px) {
+  .card-nav-container {
+    width: 96%;
+    top: 1.2em;
+  }
+
+  .card-nav-top {
+    padding: 0.5rem 0.75rem;
+    justify-content: space-between;
+  }
+
+  .hamburger-menu {
+    order: 2;
+  }
+
+  .logo-container {
+    position: static;
+    transform: none;
+    order: 1;
+  }
+
+  .card-nav-cta-button {
+    display: none;
+  }
+
+  .card-nav-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 0.5rem;
+    bottom: 0;
+    justify-content: flex-start;
+  }
+
+  .nav-card {
+    height: auto;
+    min-height: 72px;
+    flex: 1 1 auto;
+    max-height: none;
+  }
+
+  .nav-card-label {
+    font-size: 16px;
+  }
+
+  .nav-card-link {
+    font-size: 14px;
+  }
+}
+  

@@ -2,13 +2,57 @@
 <html lang="en">
 
   <head>
-    <meta charset="UTF-8">
-    <title>Center-Mode Productivity Slider (Pro v5)</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <title>Center-Mode Productivity Slider (Pro v5)</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/card-nav.css">
 
   </head>
     
   <body>
+  <!-- Global card navigation -->
+  <div class="card-nav-container">
+    <nav id="global-card-nav" class="card-nav">
+      <div class="card-nav-top">
+        <div id="card-nav-hamburger" class="hamburger-menu" role="button" aria-label="Open menu" tabindex="0">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
+
+        <div class="logo-container">
+          <a class="logo-link" href="index.html" aria-label="Home"><span class="logo">NS</span></a>
+        </div>
+
+        <a class="card-nav-cta-button" href="contact.html">Get Proposal</a>
+      </div>
+
+      <div id="card-nav-content" class="card-nav-content">
+        <div class="nav-card">
+          <div class="nav-card-label">Company</div>
+          <div class="nav-card-links">
+            <a class="nav-card-link" href="index.html">Home</a>
+            <a class="nav-card-link" href="about.html">About</a>
+            <a class="nav-card-link" href="services.html">Services</a>
+          </div>
+        </div>
+        <div class="nav-card">
+          <div class="nav-card-label">Work</div>
+      <div class="nav-card-links">
+        <a class="nav-card-link" href="all-profolio.html">Case studies</a>
+        <a class="nav-card-link" href="#workshops">Workshops</a>
+        <a class="nav-card-link" href="#advisory">Advisory</a>
+      </div>
+        </div>
+        <div class="nav-card">
+          <div class="nav-card-label">Connect</div>
+          <div class="nav-card-links">
+            <a class="nav-card-link" href="contact.html">Contact</a>
+            <a class="nav-card-link" href="mailto:hello@novastack.digital">Email</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
   <!--
 ╭───────────────────────────────────────────────────────────╮
   Center-Mode Productivity Slider – Pro v5-b              
@@ -101,7 +145,8 @@
 
   <div class="dots" id="dots"></div>
 </section>
-    <script  src="./script.js"></script>
+  <script src="js/card-nav-init.js" defer></script>
+  <script src="js/home-slider.js" defer></script>
 
   </body>
   

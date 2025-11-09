@@ -10,33 +10,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-3hQ5f1jSUnzdg3NofM8JrIoYNewc19hXtOD87o5iV/mQJu1WDV5j1WFJsbgx5caX5/C/PObbIVdQGdbQfQAtXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/card-nav.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body class="page">
-    <header class="site-header" data-header>
-        <div class="container site-header__container">
-            <a class="site-logo" href="index.html" aria-label="NovaStack Digital home">
-                <span class="site-logo__mark" aria-hidden="true">NS</span>
-                <span class="site-logo__text">NovaStack Digital</span>
-            </a>
-            <nav class="site-nav" aria-label="Primary navigation">
-                <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation" data-nav-toggle>
-                    <span class="nav__toggle-line"></span>
-                    <span class="nav__toggle-line"></span>
-                    <span class="nav__toggle-line"></span>
-                </button>
-                <ul class="nav__list" id="primary-menu">
-                    <li class="nav__item"><a class="nav__link" href="index.html#hero">Home</a></li>
-                    <li class="nav__item"><a class="nav__link is-active" href="about.html">About</a></li>
-                    <li class="nav__item"><a class="nav__link" href="services.html">Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="index.html#case-studies">Case Studies</a></li>
-                    <li class="nav__item"><a class="nav__link" href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <a class="button button--primary site-header__cta" href="contact.html">Get Proposal</a>
-        </div>
-    </header>
+    <!-- Global card navigation (replaces previous header nav) -->
+    <div class="card-nav-container">
+        <nav id="global-card-nav" class="card-nav">
+            <div class="card-nav-top">
+                <div id="card-nav-hamburger" class="hamburger-menu" role="button" aria-label="Open menu" tabindex="0">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+
+                <div class="logo-container">
+                    <a class="logo-link" href="index.html" aria-label="Home"><span class="logo">NS</span></a>
+                </div>
+
+                <a class="card-nav-cta-button" href="contact.html">Get Proposal</a>
+            </div>
+
+            <div id="card-nav-content" class="card-nav-content">
+                <div class="nav-card">
+                    <div class="nav-card-label">Company</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="index.html">Home</a>
+                        <a class="nav-card-link" href="about.html">About</a>
+                        <a class="nav-card-link" href="services.html">Services</a>
+                    </div>
+                </div>
+                <div class="nav-card">
+                    <div class="nav-card-label">Work</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="all-profolio.html">Case studies</a>
+                        <a class="nav-card-link" href="#workshops">Workshops</a>
+                        <a class="nav-card-link" href="#advisory">Advisory</a>
+                    </div>
+                </div>
+                <div class="nav-card">
+                    <div class="nav-card-label">Connect</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="contact.html">Contact</a>
+                        <a class="nav-card-link" href="mailto:hello@novastack.digital">Email</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <main>
         <section class="page-hero page-hero--about" aria-labelledby="about-title">
@@ -253,6 +274,7 @@
         </div>
     </footer>
 
+    <script src="js/card-nav-init.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="js/main.js" defer></script>
     <script src="js/scroll.js" defer></script>

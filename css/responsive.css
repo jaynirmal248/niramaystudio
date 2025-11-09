@@ -240,6 +240,51 @@
         grid-template-columns: minmax(0, 1fr);
     }
 
+    .service-section {
+        padding: 2rem;
+    }
+
+    .service-section__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+
+    .service-section__title {
+        font-size: 1.3rem;
+    }
+
+    .service-highlights {
+        padding: 2rem 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .service-highlights__content,
+    .service-highlights__panel {
+        grid-column: 1 / -1;
+    }
+
+    .service-highlights__panel {
+        margin-top: 2rem;
+    }
+
+    .service-advisory__intro,
+    .service-advisory__details {
+        grid-column: 1 / -1;
+    }
+
+    .service-advisory__details {
+        margin-top: 2rem;
+    }
+
+    .highlight-card {
+        padding: 1.75rem;
+    }
+
+    .advisory-card {
+        padding: 1.75rem;
+    }
+
     /* Make case cards more compact and readable on mobile */
     .case-card {
         min-height: auto;
@@ -323,5 +368,48 @@
 
     .case-card__person-role {
         font-size: 0.8rem;
+    }
+
+    .service-section {
+        padding: 1.75rem;
+        gap: 1.25rem;
+    }
+
+    .service-section__icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+
+    .service-section__title {
+        font-size: 1.2rem;
+    }
+
+    .service-section__list {
+        gap: 0.7rem;
+    }
+
+    .service-section__list li {
+        font-size: 0.9rem;
+    }
+
+    .service-highlights {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .highlight-card {
+        padding: 1.5rem;
+    }
+
+    .highlight-card__title {
+        font-size: 1.15rem;
+    }
+
+    .advisory-card {
+        padding: 1.5rem;
+    }
+
+    .advisory-card__title {
+        font-size: 1.15rem;
     }
 }

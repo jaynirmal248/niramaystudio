@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-3hQ5f1jSUnzdg3NofM8JrIoYNewc19hXtOD87o5iV/mQJu1WDV5j1WFJsbgx5caX5/C/PObbIVdQGdbQfQAtXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/card-nav.css" />
     <link rel="stylesheet" href="css/home-slider.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
@@ -49,29 +50,49 @@
     </script>
 </head>
 <body>
-    <header class="site-header" data-header>
-        <div class="container site-header__container">
-            <a class="site-logo" href="index.html" aria-label="NovaStack Digital home">
-                <span class="site-logo__mark" aria-hidden="true">NS</span>
-                <span class="site-logo__text">NovaStack Digital</span>
-            </a>
-            <nav class="site-nav" aria-label="Primary navigation">
-                <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation" data-nav-toggle>
-                    <span class="nav__toggle-line"></span>
-                    <span class="nav__toggle-line"></span>
-                    <span class="nav__toggle-line"></span>
-                </button>
-                <ul class="nav__list" id="primary-menu">
-                    <li class="nav__item"><a class="nav__link" href="#hero">Home</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
-                    <li class="nav__item"><a class="nav__link" href="services.html">Services</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#testimonial-panel">Case Studies</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <a class="button button--primary site-header__cta" href="contact.html">Get Proposal</a>
-        </div>
-    </header>
+    <!-- Global card navigation (replaces previous header nav) -->
+    <div class="card-nav-container">
+        <nav id="global-card-nav" class="card-nav">
+            <div class="card-nav-top">
+                <div id="card-nav-hamburger" class="hamburger-menu" role="button" aria-label="Open menu" tabindex="0">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+
+                <div class="logo-container">
+                    <a class="logo-link" href="index.html" aria-label="Home"><span class="logo">NS</span></a>
+                </div>
+
+                <a class="card-nav-cta-button" href="contact.html">Get Proposal</a>
+            </div>
+
+            <div id="card-nav-content" class="card-nav-content">
+                <div class="nav-card">
+                    <div class="nav-card-label">Company</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="index.html">Home</a>
+                        <a class="nav-card-link" href="about.html">About</a>
+                        <a class="nav-card-link" href="services.html">Services</a>
+                    </div>
+                </div>
+                <div class="nav-card">
+                    <div class="nav-card-label">Work</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="all-profolio.html">Case studies</a>
+                        <a class="nav-card-link" href="#workshops">Workshops</a>
+                        <a class="nav-card-link" href="#advisory">Advisory</a>
+                    </div>
+                </div>
+                <div class="nav-card">
+                    <div class="nav-card-label">Connect</div>
+                    <div class="nav-card-links">
+                        <a class="nav-card-link" href="contact.html">Contact</a>
+                        <a class="nav-card-link" href="mailto:hello@novastack.digital">Email</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <main>
         <!-- Home slider inserted at top of page -->
@@ -166,11 +187,11 @@
             <div class="container hero__grid grid">
                 <div class="hero__content" data-sr="fade-up">
                     <p class="eyebrow">Experience-first digital agency</p>
-                    <h1 class="hero__headline">We provide quilty.</h1>
+                    <h1 class="hero__headline">We design experiences that convert.</h1>
                     <p class="hero__subheadline">Strategy, design, and engineering in perfect harmony. We help ambitious brands launch memorable experiences that accelerate growth.</p>
                     <div class="hero__cta-group">
                         <a class="button button--primary" href="services.html">Explore Services</a>
-                        <a class="button button--ghost" href="#testimonial-panel">View Work</a>
+                        <a class="button button--ghost" href="all-profolio.html">View Work</a>
                     </div>
                     <div class="hero__metrics" role="list">
                         <div class="metric" role="listitem">
@@ -253,121 +274,96 @@
             </div>
         </section>
 
-        <section class="testimonials" aria-labelledby="testimonials-heading">
+        <!-- Testimonials section -->
+        <section class="testimonials-grid" aria-labelledby="testimonials-grid-heading">
             <div class="container">
                 <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="testimonials-heading">Selected work</h2>
-                    <p>A snapshot of collaborative wins across SaaS, eCommerce, and emerging tech. Dive deeper into our process and measurable outcomes.</p>
-                </div>
-                <div class="testimonials__grid">
-                    <div class="flowing-menu" data-flowing-menu role="tablist" aria-orientation="vertical">
-                        <button class="flowing-menu__item is-active" type="button" id="testimonial-tab-1" role="tab" tabindex="0" aria-selected="true" aria-controls="testimonial-panel" data-flowing-menu-item data-name="Anya Patel" data-role="VP Product, ASPK International Trade" data-summary="+28% trial-to-paid conversion" data-quote="NovaStack translated complex requirements into an intuitive platform. Our trial-to-paid rate climbed 28% within two months." data-image="https://iili.io/Fs1TqBV.jpg" data-site="https://aspk.example.com" style="--overlay-image: url('https://iili.io/Fs1TqBV.jpg');">
-                            <span class="flowing-menu__title">ASPK International Trade</span>
-                            <span class="flowing-menu__meta">Enterprise SaaS acceleration</span>
-                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
-                                <div class="flowing-menu__overlay-motion">
-                                    <div class="flowing-menu__overlay-inner">
-                                        <span>ASPK International Trade · B2B Store</span>
-                                        <span>ASPK International Trade · B2B Store</span>
-                                        <span>ASPK International Trade · B2B Store</span>
-                                        <span>ASPK International Trade · B2B Store</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                        <button class="flowing-menu__item" type="button" id="testimonial-tab-2" role="tab" tabindex="-1" aria-selected="false" aria-controls="testimonial-panel" data-flowing-menu-item data-name="Marco Jensen" data-role="CMO, Muse Studio" data-summary="+32% average order value" data-quote="They became an extension of our team—roadmap clarity, flexible sprints, and gorgeous design. The revenue lift speaks for itself." data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80&fm=webp" data-site="https://muse.example.com" style="--overlay-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                            <span class="flowing-menu__title">Muse Studio</span>
-                            <span class="flowing-menu__meta">Narrative commerce power-up</span>
-                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
-                                <div class="flowing-menu__overlay-motion">
-                                    <div class="flowing-menu__overlay-inner">
-                                        <span>Muse Studio · Narrative commerce</span>
-                                        <span>Muse Studio · Narrative commerce</span>
-                                        <span>Muse Studio · Narrative commerce</span>
-                                        <span>Muse Studio · Narrative commerce</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                        <button class="flowing-menu__item" type="button" id="testimonial-tab-3" role="tab" tabindex="-1" aria-selected="false" aria-controls="testimonial-panel" data-flowing-menu-item data-name="Rosa Hernández" data-role="Chief Risk Officer, Orbit Capital" data-summary="49% drop-off reduction" data-quote="Compliance and delight rarely coexist. NovaStack engineered both, earning praise from regulators and customers alike." data-image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp" data-site="https://orbit.example.com" style="--overlay-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                            <span class="flowing-menu__title">Orbit Capital</span>
-                            <span class="flowing-menu__meta">Regulated fintech onboarding</span>
-                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
-                                <div class="flowing-menu__overlay-motion">
-                                    <div class="flowing-menu__overlay-inner">
-                                        <span>Orbit Capital · Fintech velocity</span>
-                                        <span>Orbit Capital · Fintech velocity</span>
-                                        <span>Orbit Capital · Fintech velocity</span>
-                                        <span>Orbit Capital · Fintech velocity</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="testimonial-display" id="testimonial-panel" role="tabpanel" aria-live="polite" tabindex="0" data-testimonial-display>
-                        <div class="testimonial-display__bg" data-testimonial-visual></div>
-                        <figure class="testimonial-display__content" data-testimonial-content aria-labelledby="testimonial-tab-1">
-                            <div class="testimonial-display__badge" data-testimonial-summary>+28% trial-to-paid conversion</div>
-                            <blockquote class="testimonial-display__quote" data-testimonial-quote>“NovaStack translated complex requirements into an intuitive platform. Our trial-to-paid rate climbed 28% within two months.”</blockquote>
-                            <figcaption class="testimonial-display__meta">
-                                <div class="testimonial-display__name" data-testimonial-name>Anya Patel</div>
-                                <div class="testimonial-display__role" data-testimonial-role>VP Product, ASPK International Trade</div>
-                            </figcaption>
-                            <div class="display-actions">
-                                <a class="button button--ghost" data-testimonial-visit href="#" target="_blank" rel="noopener noreferrer">Visit site</a>
-                            </div>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonial-panel" id="testimonial-panel" aria-labelledby="testimonial-panel-heading">
-            <div class="container">
-                <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="testimonial-panel-heading">What partners say</h2>
+                    <h2 class="section-title" id="testimonials-grid-heading">What partners say</h2>
                     <p>Momentum fueled by genuine relationships. Hear from the leaders who trust NovaStack Digital.</p>
                 </div>
-                <div class="case-grid grid" data-sr="fade-up" data-sr-delay="140">
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">SaaS</div>
-                            <h3 class="case-card__title" data-case-title="ASPK International Trade">ASPK International Trade</h3>
-                        <p class="case-card__excerpt">Redesigned the analytics experience, reducing time-to-insight by 47% and driving enterprise expansion.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">AP</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Anya Patel</div>
-                                    <div class="case-card__person-role">VP Product, ASPK International Trade</div>
+                <div class="testimonials-grid__container">
+                    <div class="innerdiv">
+                        <!-- div1 -->
+                        <div class="div1 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-daniel.jpg" alt="Daniel Clifford">
+                                </div>
+                                <div class="detbox">
+                                    <p class="name">Daniel Clifford</p>
+                                    <p class="designation">Verified Graduate</p>
                                 </div>
                             </div>
-                    </article>
-
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">eCommerce</div>
-                            <h3 class="case-card__title" data-case-title="Muse Studio">Muse Studio</h3>
-                        <p class="case-card__excerpt">Crafted modular storytelling blocks that increased average order value by 32% within the first quarter.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">MJ</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Marco Jensen</div>
-                                    <div class="case-card__person-role">CMO, Muse Studio</div>
+                            <div class="review">
+                                <h4>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny’s worth.</h4>
+                                <p>“ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
+                            </div>
+                        </div>
+                        <!-- div2 -->
+                        <div class="div2 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jonathan.jpg" alt="Jonathan Walters">
+                                </div>
+                                <div class="detbox">
+                                    <p class="name">Jonathan Walters</p>
+                                    <p class="designation">Verified Graduate</p>
                                 </div>
                             </div>
-                    </article>
-
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">Fintech</div>
-                            <h3 class="case-card__title" data-case-title="Orbit Capital">Orbit Capital</h3>
-                        <p class="case-card__excerpt">Implemented compliance-first onboarding, cutting drop-off rates by half while improving NPS.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">RH</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Rosa Hernández</div>
-                                    <div class="case-card__person-role">Chief Risk Officer, Orbit Capital</div>
+                            <div class="review">
+                                <h4>The team was very supportive and kept me motivated</h4>
+                                <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer for a big company. This was one of the best investments I’ve made in myself. ”</p>
+                            </div>
+                        </div>
+                        <!-- div3 -->
+                        <div class="div3 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-kira.jpg" alt="Kira Whittle">
+                                </div>
+                                <div class="detbox">
+                                    <p class="name dark">Kira Whittle</p>
+                                    <p class="designation dark">Verified Graduate</p>
                                 </div>
                             </div>
-                    </article>
-
+                            <div class="review dark">
+                                <h4>Such a life-changing experience. Highly recommended!</h4>
+                                <p>“ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I’ve often referred to it during interviews as an example of experience. It certainly helped me land a job as a full-stack 100% recommend! ”</p>
+                            </div>
+                        </div>
+                        <!-- div4 -->
+                        <div class="div4 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-jeanette.jpg" alt="Jeanette Harmon">
+                                </div>
+                                <div class="detbox">
+                                    <p class="name dark">Jeanette Harmon</p>
+                                    <p class="designation dark">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="review dark">
+                                <h4>An overall wonderful and rewarding experience</h4>
+                                <p>“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love. ”</p>
+                            </div>
+                        </div>
+                        <!-- div5 -->
+                        <div class="div5 eachdiv">
+                            <div class="userdetails">
+                                <div class="imgbox">
+                                    <img src="https://raw.githubusercontent.com/RahulSahOfficial/testimonials_grid_section/5532c958b7d3c9b910a216b198fdd21c73112d84/images/image-patrick.jpg" alt="Patrick Abrams">
+                                </div>
+                                <div class="detbox">
+                                    <p class="name">Patrick Abrams</p>
+                                    <p class="designation">Verified Graduate</p>
+                                </div>
+                            </div>
+                            <div class="review">
+                                <h4>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</h4>
+                                <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as a capable junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. ”</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -418,7 +414,7 @@
             <div class="site-footer__nav">
                 <h3 class="site-footer__heading">Resources</h3>
                 <ul class="site-footer__list">
-                    <li><a href="#testimonial-panel">Case studies</a></li>
+                    <li><a href="all-profolio.html">Case studies</a></li>
                     <li><a href="services.html#workshops">Workshops</a></li>
                     <li><a href="services.html#advisory">Advisory</a></li>
                     <li><a href="mailto:press@novastack.digital">Press</a></li>
@@ -482,6 +478,7 @@
         </div>
     </div>
 
+    <script src="js/card-nav-init.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-7JZ9eczsQnUnxE27XGr0C+MEY0S8NxV+4CSkiqhSSjMBDuNIQP5CKEM5Qn2ATqNnS/xPbbGr3HdWu3Uw3OZ8kg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="js/home-slider.js" defer></script>

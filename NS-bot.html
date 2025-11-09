@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Niramay Studio Mascot</title>
+<style>
+  html,body {
+    margin:0;
+    height:100%;
+    background:#0a0f1a;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+  }
+  #mascotContainer {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:150px;
+    height:150px;
+    perspective:800px;
+  }
+  #mascot {
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0px) rotateY(0deg); }
+    50% { transform:translateY(-20px) rotateY(10deg); }
+  }
+  #mascot img {
+    width:100%;
+    height:auto;
+    position:absolute;
+    transform:translateZ(0);
+    transition:transform 0.2s ease-out;
+    user-select:none;
+    pointer-events:none;
+  }
+  #shadow {
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:60%;
+    height:10px;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,0.4) 0%,rgba(0,0,0,0) 80%);
+    border-radius:50%;
+    animation:shadowPulse 3s ease-in-out infinite;
+  }
+  @keyframes shadowPulse {
+    0%,100% { transform:scale(1); opacity:0.5; }
+    50% { transform:scale(0.8); opacity:0.3; }
+  }
+</style>
+</head>
+<body>
+
+<div id="mascotContainer">
+  <div id="mascot">
+    <img src="ChatGPT Image Nov 7, 2025, 04_09_25 PM.png" alt="Niramay Mascot">
+    <div id="shadow"></div>
+  </div>
+</div>
+
+<script>
+  const mascot = document.getElementById('mascot');
+  const container = document.getElementById('mascotContainer');
+  let velocityX = (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1);
+  let velocityY = (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1);
+  let posX = window.innerWidth - 200;
+  let posY = window.innerHeight - 200;
+
+  // Basic random autonomous movement
+  function moveMascot() {
+    posX += velocityX;
+    posY += velocityY;
+
+    // Bounce off window edges
+    if (posX <= 0 || posX >= window.innerWidth - 150) velocityX *= -1;
+    if (posY <= 0 || posY >= window.innerHeight - 150) velocityY *= -1;
+
+    container.style.left = posX + "px";
+    container.style.top = posY + "px";
+
+    requestAnimationFrame(moveMascot);
+  }
+
+  moveMascot();
+
+  // Follow mouse a bit (adds life)
+  document.addEventListener('mousemove', e => {
+    const dx = (e.clientX - (posX + 75)) * 0.002;
+    const dy = (e.clientY - (posY + 75)) * 0.002;
+    mascot.style.transform = `rotateY(${dx*60}deg) rotateX(${dy*30}deg)`;
+  });
+
+  // Click reaction
+  mascot.addEventListener('click', () => {
+    mascot.style.animation = 'none';
+    mascot.style.transform = 'scale(1.3) rotateZ(15deg)';
+    setTimeout(() => {
+      mascot.style.animation = '';
+      mascot.style.transform = 'scale(1) rotateZ(0deg)';
+    }, 400);
+  });
+
+  // Control system for external triggers
+  window.NiramayBot = {
+    moveFaster() { velocityX *= 1.5; velocityY *= 1.5; },
+    moveSlower() { velocityX *= 0.5; velocityY *= 0.5; },
+    stop() { velocityX = 0; velocityY = 0; },
+    resume() { 
+      velocityX = (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1);
+      velocityY = (Math.random() * 1.5 + 0.5) * (Math.random() < 0.5 ? -1 : 1);
+    },
+    wave() {
+      mascot.style.transform += ' rotateZ(20deg)';
+      setTimeout(()=>{mascot.style.transform='';},500);
+    }
+  };
+</script>
+
+</body>
+</html>

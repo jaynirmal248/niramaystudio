@@ -103,6 +103,174 @@
     center(current, false);
   });
 
+  // On mobile, observe which card is mostly visible and mark it active so
+  // the visible card appears "expanded" by default when one-per-view is used.
+  let observer = null;
+
+  function setupMobileObserver() {
+    if (observer) return;
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          // pick the entry with highest intersectionRatio above 0.5
+          let best = null;
+          for (const e of entries) {
+            if (!best || e.intersectionRatio > best.intersectionRatio) best = e;
+          }
+          if (best && best.isIntersecting && best.intersectionRatio >= 0.5) {
+            const idx = cards.indexOf(best.target);
+            if (idx >= 0) activate(idx, false);
+          }
+        },
+        {
+          root: wrap, // track sits inside wrap; observe visibility within the viewport area
+          threshold: [0.5, 0.75, 0.9],
+        }
+      );
+
+      cards.forEach((c) => observer.observe(c));
+    } catch (err) {
+      // IntersectionObserver unavailable — fallback to default active 0
+      observer = null;
+    }
+  }
+
+  function teardownMobileObserver() {
+    if (!observer) return;
+    observer.disconnect();
+    observer = null;
+  }
+
+  // initialize appropriate behavior based on current viewport
+  if (isMobile()) {
+    setupMobileObserver();
+  }
+
+  mqMobile.addEventListener("change", (ev) => {
+    if (ev.matches) {
+      // switched to mobile
+      setupMobileObserver();
+      // ensure first visible card is active
+      toggleUI(current);
+    } else {
+      // left mobile
+      teardownMobileObserver();
+      // keep desktop centering rules consistent
+      center(current, false);
+    }
+  });
+
   toggleUI(0);
   center(0, false);
+
+  // --- Auto-scroll feature (desktop: center/advance, mobile: scrollIntoView) ---
+  const AUTO_ENABLED = true;
+  const AUTO_INTERVAL = 4000; // ms between auto-advances
+  const LAST_EXTRA = 2000; // extra ms for the last slide
+  let autoTimer = null;
+  let autoPaused = false;
+
+  function autoAdvance() {
+    if (!AUTO_ENABLED || autoPaused) return;
+    // Compute next index and wrap to the first slide after the last
+    let next = current + 1;
+    if (next >= cards.length) next = 0;
+    // On mobile, scroll the track so the next card becomes centered/visible
+    if (isMobile()) {
+      // Compute the scroll position for the next card relative to the visible container
+      // and scroll the inner container (wrap) instead of calling element.scrollIntoView().
+      // scrollIntoView can cause the outer document to jump on some devices/browsers;
+      // scrolling the container keeps the change local to the slider and avoids forcing
+      // the page to move.
+      // The scrollable element on mobile is the `.track` (it has overflow-x:auto)
+      // so scroll the track directly to avoid affecting the document scroll.
+      const target = clampOffset(cards[next].offsetLeft - (wrap.clientWidth / 2 - cards[next].clientWidth / 2));
+      try {
+        track.scrollTo({ left: target, behavior: "smooth" });
+      } catch (e) {
+        // fallback: set scrollLeft directly
+        track.scrollLeft = target;
+      }
+      // IntersectionObserver will pick the active card when scroll completes
+    } else {
+      // desktop: advance and center immediately
+      activate(next, true);
+    }
+  }
+
+  // Use a variable timeout scheduler so we can extend the delay for the last slide.
+  function scheduleAuto() {
+    if (!AUTO_ENABLED || autoPaused) return;
+    stopAuto();
+    // Delay should be longer when the CURRENT slide is the last one (i.e., show it extra)
+    const delay = current === cards.length - 1 ? AUTO_INTERVAL + LAST_EXTRA : AUTO_INTERVAL;
+    autoTimer = setTimeout(() => {
+      // advance then schedule next based on the new current index
+      autoAdvance();
+      // schedule the next tick after allowing current to update (IntersectionObserver may update on mobile)
+      // use a small rAF to ensure state updates applied
+      requestAnimationFrame(() => scheduleAuto());
+    }, delay);
+  }
+
+  function startAuto() {
+    if (!AUTO_ENABLED) return;
+    scheduleAuto();
+  }
+
+  function stopAuto() {
+    if (autoTimer) {
+      clearTimeout(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function pauseAutoTemporarily(delay = 6000) {
+    // pause auto-scrolling for a period after user interaction
+    autoPaused = true;
+    stopAuto();
+    clearTimeout(pauseAutoTemporarily._resumeTimer);
+    pauseAutoTemporarily._resumeTimer = setTimeout(() => {
+      autoPaused = false;
+      startAuto();
+    }, delay);
+  }
+
+  // Pause when user hovers/focuses the slider, or when touch interaction starts
+  wrap.addEventListener("mouseenter", () => {
+    autoPaused = true;
+    stopAuto();
+  });
+  wrap.addEventListener("mouseleave", () => {
+    autoPaused = false;
+    startAuto();
+  });
+  wrap.addEventListener("focusin", () => {
+    autoPaused = true;
+    stopAuto();
+  });
+  wrap.addEventListener("focusout", () => {
+    autoPaused = false;
+    startAuto();
+  });
+  // Touch interactions should pause and then resume after a short delay
+  track.addEventListener(
+    "touchstart",
+    () => {
+      pauseAutoTemporarily();
+    },
+    { passive: true }
+  );
+
+  // Reset/pause auto on user click/activate
+  cards.forEach((c) => c.addEventListener("click", () => pauseAutoTemporarily()));
+
+  // Pause when page isn't visible
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopAuto();
+    else startAuto();
+  });
+
+  // Start auto when initialized
+  startAuto();
 })();
