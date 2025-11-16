@@ -13,8 +13,11 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/card-nav.css" />
     <link rel="stylesheet" href="css/home-slider.css" />
+        <link rel="stylesheet" href="css/cta.css" />
+    <link rel="stylesheet" href="css/services-card.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="profile-card.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -25,27 +28,7 @@
         "sameAs": [
             "https://www.linkedin.com/company/novastack-digital",
             "https://www.instagram.com/novastackdigital"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-844-555-0199",
-            "contactType": "customer support",
-            "areaServed": "US",
-            "availableLanguage": ["English"]
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "url": "https://novastack.digital",
-        "name": "NovaStack Digital",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://novastack.digital/?s={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        ]
     }
     </script>
 </head>
@@ -63,7 +46,7 @@
                     <a class="logo-link" href="index.html" aria-label="Home"><span class="logo">NS</span></a>
                 </div>
 
-                <a class="card-nav-cta-button" href="contact.html">Get Proposal</a>
+                <a class="card-nav-cta-button" href="contact.html">Contact Us</a>
             </div>
 
             <div id="card-nav-content" class="card-nav-content">
@@ -72,7 +55,8 @@
                     <div class="nav-card-links">
                         <a class="nav-card-link" href="index.html">Home</a>
                         <a class="nav-card-link" href="about.html">About</a>
-                        <a class="nav-card-link" href="services.html">Services</a>
+                        <a class="nav-card-link" href="all-services.html">Services</a>
+                        <a class="nav-card-link" href="teams.html">Team</a>
                     </div>
                 </div>
                 <div class="nav-card">
@@ -190,7 +174,7 @@
                     <h1 class="hero__headline">We design experiences that convert.</h1>
                     <p class="hero__subheadline">Strategy, design, and engineering in perfect harmony. We help ambitious brands launch memorable experiences that accelerate growth.</p>
                     <div class="hero__cta-group">
-                        <a class="button button--primary" href="services.html">Explore Services</a>
+                        <a class="button button--primary" href="all-services.html">Explore Services</a>
                         <a class="button button--ghost" href="all-profolio.html">View Work</a>
                     </div>
                     <div class="hero__metrics" role="list">
@@ -245,7 +229,7 @@
             </div>
         </section>
 
-        <section class="services-preview" aria-labelledby="services-heading">
+                <section class="services-preview" aria-labelledby="services-heading">
             <div class="container">
                 <div class="section-intro" data-sr="fade-up">
                     <h2 class="section-title" id="services-heading">End-to-end digital outcomes</h2>
@@ -273,6 +257,76 @@
                 </div>
             </div>
         </section>
+
+        <section class="services" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section-intro" data-sr="fade-up">
+                    <h2 class="section-title" id="services-heading">Selected work</h2>
+                    <p>A snapshot of collaborative wins across SaaS, eCommerce, and emerging tech. Dive deeper into our process and measurable outcomes.</p>
+                </div>
+                <div class="services__grid">
+                    <div class="flowing-menu" data-flowing-menu role="tablist" aria-orientation="vertical">
+                        <button class="flowing-menu__item is-active" type="button" id="services-tab-1" role="tab" tabindex="0" aria-selected="true" aria-controls="services" data-flowing-menu-item data-name="Anya Patel" data-role="VP Product, ASPK International Trade" data-summary="+28% trial-to-paid conversion" data-quote="NovaStack translated complex requirements into an intuitive platform. Our trial-to-paid rate climbed 28% within two months." data-image="https://iili.io/Fs1TqBV.jpg" data-site="https://aspk.example.com" style="--overlay-image: url('https://iili.io/Fs1TqBV.jpg');">
+                            <span class="flowing-menu__title">ASPK International Trade</span>
+                            <span class="flowing-menu__meta">Enterprise SaaS acceleration</span>
+                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
+                                <div class="flowing-menu__overlay-motion">
+                                    <div class="flowing-menu__overlay-inner">
+                                        <span>ASPK International Trade · B2B Store</span>
+                                        <span>ASPK International Trade · B2B Store</span>
+                                        <span>ASPK International Trade · B2B Store</span>
+                                        <span>ASPK International Trade · B2B Store</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="flowing-menu__item" type="button" id="services-tab-2" role="tab" tabindex="-1" aria-selected="false" aria-controls="services" data-flowing-menu-item data-name="Marco Jensen" data-role="CMO, Muse Studio" data-summary="+32% average order value" data-quote="They became an extension of our team—roadmap clarity, flexible sprints, and gorgeous design. The revenue lift speaks for itself." data-image="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80&fm=webp" data-site="https://muse.example.com" style="--overlay-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80&fm=webp');">
+                            <span class="flowing-menu__title">Muse Studio</span>
+                            <span class="flowing-menu__meta">Narrative commerce power-up</span>
+                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
+                                <div class="flowing-menu__overlay-motion">
+                                    <div class="flowing-menu__overlay-inner">
+                                        <span>Muse Studio · Narrative commerce</span>
+                                        <span>Muse Studio · Narrative commerce</span>
+                                        <span>Muse Studio · Narrative commerce</span>
+                                        <span>Muse Studio · Narrative commerce</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="flowing-menu__item" type="button" id="services-tab-3" role="tab" tabindex="-1" aria-selected="false" aria-controls="services" data-flowing-menu-item data-name="Rosa Hernández" data-role="Chief Risk Officer, Orbit Capital" data-summary="49% drop-off reduction" data-quote="Compliance and delight rarely coexist. NovaStack engineered both, earning praise from regulators and customers alike." data-image="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp" data-site="https://orbit.example.com" style="--overlay-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp');">
+                            <span class="flowing-menu__title">Orbit Capital</span>
+                            <span class="flowing-menu__meta">Regulated fintech onboarding</span>
+                            <div class="flowing-menu__overlay" data-menu-overlay aria-hidden="true">
+                                <div class="flowing-menu__overlay-motion">
+                                    <div class="flowing-menu__overlay-inner">
+                                        <span>Orbit Capital · Fintech velocity</span>
+                                        <span>Orbit Capital · Fintech velocity</span>
+                                        <span>Orbit Capital · Fintech velocity</span>
+                                        <span>Orbit Capital · Fintech velocity</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="services-display" id="services" role="tabpanel" aria-live="polite" tabindex="0" data-services-display>
+                        <div class="services-display__bg" data-services-visual></div>
+                        <figure class="services-display__content" data-services-content aria-labelledby="services-tab-1">
+                            <div class="services-display__badge" data-services-summary>+28% trial-to-paid conversion</div>
+                            <blockquote class="services-display__quote" data-services-quote>“NovaStack translated complex requirements into an intuitive platform. Our trial-to-paid rate climbed 28% within two months.”</blockquote>
+                            <figcaption class="services-display__meta">
+                            <div class="services-display__name" data-services-name>Anya Patel</div>
+                            <div class="services-display__role" data-services-role>VP Product, ASPK International Trade</div>
+                            </figcaption>
+                            <div class="display-actions">
+                                <a class="button button--ghost" data-services-visit href="#" target="_blank" rel="noopener noreferrer">Visit site</a>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Testimonials section -->
         <section class="testimonials-grid" aria-labelledby="testimonials-grid-heading">
@@ -406,7 +460,7 @@
                 <h3 class="site-footer__heading">Connect</h3>
                 <ul class="site-footer__list">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="all-services.html">Services</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -415,8 +469,8 @@
                 <h3 class="site-footer__heading">Resources</h3>
                 <ul class="site-footer__list">
                     <li><a href="all-profolio.html">Case studies</a></li>
-                    <li><a href="services.html#workshops">Workshops</a></li>
-                    <li><a href="services.html#advisory">Advisory</a></li>
+                    <li><a href="all-services.html#workshops">Workshops</a></li>
+                    <li><a href="all-services.html#advisory">Advisory</a></li>
                     <li><a href="mailto:press@novastack.digital">Press</a></li>
                 </ul>
             </div>
@@ -479,11 +533,13 @@
     </div>
 
     <script src="js/card-nav-init.js" defer></script>
+    <script src="js/profile-card.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-7JZ9eczsQnUnxE27XGr0C+MEY0S8NxV+4CSkiqhSSjMBDuNIQP5CKEM5Qn2ATqNnS/xPbbGr3HdWu3Uw3OZ8kg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="js/home-slider.js" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/Flowing-menu.js" defer></script>
     <script src="js/scroll.js" defer></script>
+    <script src="js/services-card.js" defer></script>
 </body>
 </html>

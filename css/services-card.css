@@ -1,0 +1,115 @@
+/* Spotlight Card Effect - Matching Site Design System */
+
+.card-spotlight {
+    position: relative;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(21, 23, 34, 0.85);
+    padding: 2.25rem;
+    overflow: hidden;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --spotlight-color: rgba(113, 99, 255, 0.15);
+    transition: transform var(--transition-default), border-color var(--transition-default), box-shadow var(--transition-default);
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.card-spotlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle 400px at var(--mouse-x) var(--mouse-y),
+        var(--spotlight-color),
+        transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.card-spotlight:hover::before,
+.card-spotlight:focus-within::before {
+    opacity: 1;
+}
+
+.card-spotlight:hover,
+.card-spotlight:focus-within {
+    transform: translateY(-6px) translateZ(0);
+    border-color: rgba(113, 99, 255, 0.45);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Ensure content is above the spotlight effect */
+.card-spotlight > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* For service cards on services page */
+.service-card.card-spotlight {
+    background: rgba(21, 23, 34, 0.85);
+}
+
+.service-card.card-spotlight:hover {
+    background: rgba(24, 26, 38, 0.92);
+}
+
+/* For service cards on all-services page */
+#servicesContainer .service-card.card-spotlight,
+.services-grid .service-card.card-spotlight {
+    background: rgba(21, 23, 34, 0.85);
+}
+
+#servicesContainer .service-card.card-spotlight:hover,
+.services-grid .service-card.card-spotlight:hover {
+    background: rgba(24, 26, 38, 0.92);
+}
+
+/* Ensure spotlight works with ::after gradient */
+.card-spotlight::after {
+    z-index: 0;
+}
+
+.card-spotlight:hover::after,
+.card-spotlight:focus-within::after {
+    opacity: 0.5; /* Reduce opacity so spotlight shows through */
+}
+
+/* Maintain existing service card styles when spotlight is applied */
+.card-spotlight .service-card__icon,
+.card-spotlight .service-icon {
+    position: relative;
+    z-index: 2;
+}
+
+.card-spotlight .service-card__title,
+.card-spotlight h3 {
+    position: relative;
+    z-index: 2;
+}
+
+.card-spotlight .service-card__description,
+.card-spotlight .service-card__copy,
+.card-spotlight p {
+    position: relative;
+    z-index: 2;
+}
+
+.card-spotlight .service-card__cta,
+.card-spotlight .service-card__link,
+.card-spotlight .service-price,
+.card-spotlight .service-tags {
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth transitions */
+.card-spotlight * {
+    transition: color var(--transition-default), transform var(--transition-default);
+}

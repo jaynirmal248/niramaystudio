@@ -1,4 +1,4 @@
-// Handles the flowing testimonials menu interactions, animations, and content swaps.
+// Handles the flowing data-servicess menu interactions, animations, and content swaps.
 (() => {
     const menu = document.querySelector('[data-flowing-menu]');
     if (!menu) return;
@@ -6,13 +6,14 @@
     const items = Array.from(menu.querySelectorAll('[data-flowing-menu-item]'));
     if (!items.length) return;
 
-    const display = document.querySelector('[data-testimonial-display]');
-    const displayBg = display?.querySelector('[data-testimonial-visual]');
-    const content = display?.querySelector('[data-testimonial-content]');
-    const summaryEl = display?.querySelector('[data-testimonial-summary]');
-    const quoteEl = display?.querySelector('[data-testimonial-quote]');
-    const nameEl = display?.querySelector('[data-testimonial-name]');
-    const roleEl = display?.querySelector('[data-testimonial-role]');
+    const display = document.querySelector('[data-services-display]');
+    // On the page these elements use the "services" data-* names (renamed from testimonial)
+    const displayBg = display?.querySelector('[data-services-visual]');
+    const content = display?.querySelector('[data-services-content]');
+    const summaryEl = display?.querySelector('[data-services-summary]');
+    const quoteEl = display?.querySelector('[data-services-quote]');
+    const nameEl = display?.querySelector('[data-services-name]');
+    const roleEl = display?.querySelector('[data-services-role]');
 
     const hasGSAP = typeof window.gsap !== 'undefined';
     const overlayAnimation = { duration: 0.6, ease: 'expo.out' };
@@ -121,7 +122,8 @@
 
             // populate Visit site button (data-site preferred, fallback to data-link)
             const siteUrl = item.dataset.site || item.dataset.link || '';
-            const visitEl = display.querySelector('[data-case-visit], [data-testimonial-visit], [data-visit]');
+            // page uses data-services-visit for the visit link (fallbacks kept)
+            const visitEl = display.querySelector('[data-services-visit], [data-case-visit], [data-visit]');
             if (visitEl && visitEl.tagName === 'A') {
                 if (siteUrl) {
                     visitEl.href = siteUrl;

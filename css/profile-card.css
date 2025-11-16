@@ -1,0 +1,13 @@
+.profile-card-helpers { display: block; /* helper namespace */ }
+/* profile-card component styles - minimal visual states for JS toggle */
+.card.is-open {
+	box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+.profile-pic[aria-pressed="true"] {
+	transform: scale(1.03);
+	transition: transform .18s ease-in-out;
+}
+.profile-pic {
+	transition: transform .18s ease-in-out;
+}
+

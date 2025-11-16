@@ -52,6 +52,7 @@ body {
         var(--color-background);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 img,
@@ -69,6 +70,81 @@ a {
 a:hover,
 a:focus {
     color: var(--color-accent);
+}
+
+/* Buttons should preserve their original text color on hover - only effects change */
+.button {
+    color: var(--color-text);
+}
+
+.button--primary {
+    color: #fff;
+}
+
+.button--ghost {
+    color: var(--color-text);
+}
+
+/* Keep button text color unchanged on hover - only add effects */
+.button:hover,
+.button:focus,
+a.button:hover,
+a.button:focus {
+    color: var(--color-text) !important;
+    box-shadow: 0 8px 24px rgba(113, 99, 255, 0.4);
+}
+
+.button--primary:hover,
+.button--primary:focus,
+a.button--primary:hover,
+a.button--primary:focus {
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(113, 99, 255, 0.5);
+}
+
+.button--ghost:hover,
+.button--ghost:focus,
+a.button--ghost:hover,
+a.button--ghost:focus {
+    color: var(--color-text) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+/* CTA-button variants - keep text color unchanged, only add glow */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.cta-button--primary {
+    color: #fff !important;
+}
+
+.cta-button--secondary {
+    color: #fff !important;
+}
+
+.cta-button:hover,
+.cta-button:focus,
+a.cta-button:hover,
+a.cta-button:focus {
+    color: #fff !important;
+}
+
+.cta-button--primary:hover,
+.cta-button--primary:focus,
+a.cta-button--primary:hover,
+a.cta-button--primary:focus {
+    color: #fff !important;
+}
+
+.cta-button--secondary:hover,
+.cta-button--secondary:focus,
+a.cta-button--secondary:hover,
+a.cta-button--secondary:focus {
+    color: #fff !important;
 }
 
 p {
@@ -720,7 +796,7 @@ section {
 .testimonials {
     background: rgba(16, 18, 28, 0.85);
 }
-.testimonials__grid {
+.services__grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
     gap: var(--gap-lg);
@@ -844,7 +920,7 @@ section {
     }
 }
 
-.testimonial-display {
+.services-display {
     position: relative;
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -856,7 +932,7 @@ section {
     min-height: 320px;
 }
 
-.testimonial-display__bg {
+.services-display__bg {
     position: absolute;
     inset: 0;
     background-size: cover;
@@ -867,21 +943,21 @@ section {
     z-index: 0;
 }
 
-.testimonial-display__bg::after {
+.services-display__bg::after {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg, rgba(10, 11, 18, 0.78) 0%, rgba(10, 12, 22, 0.94) 65%);
 }
 
-.testimonial-display__content {
+.services-display__content {
     position: relative;
     z-index: 1;
     display: grid;
     gap: 1.1rem;
 }
 
-.testimonial-display__badge {
+.services-display__badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -895,32 +971,32 @@ section {
     border: 1px solid rgba(113, 99, 255, 0.35);
 }
 
-.testimonial-display__quote {
+.services-display__quote {
     font-size: clamp(1.1rem, 3vw, 1.4rem);
     line-height: 1.65;
     color: var(--color-text);
     margin: 0;
 }
 
-.testimonial-display__meta {
+.services-display__meta {
     display: grid;
     gap: 0.25rem;
     color: var(--color-muted);
     font-size: 0.95rem;
 }
 
-.testimonial-display__name {
+.services-display__name {
     font-family: var(--font-display);
     font-size: 1.05rem;
     color: #fff;
 }
 
 @media (max-width: 1024px) {
-    .testimonials__grid {
+    .services__grid {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .testimonial-display {
+    .services-display {
         min-height: 280px;
     }
 }
@@ -936,7 +1012,7 @@ section {
         transform: translateX(4px);
     }
 
-    .testimonial-display {
+    .services-display {
         padding: 1.75rem;
     }
 
@@ -955,7 +1031,7 @@ section {
         padding: 1.25rem 1.1rem;
     }
 
-    .testimonial-display__quote {
+    .services-display__quote {
         font-size: 1.05rem;
     }
 }
@@ -2117,4 +2193,4 @@ select.form__input.is-invalid {
     }
 }
 
-/* End of Testimonials Grid Section */
+/* End of servicess Grid Section */

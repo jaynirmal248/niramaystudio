@@ -1,0 +1,115 @@
+/* Reusable CTA section (matches services page style) */
+.services-cta {
+    padding: 6rem 2rem;
+    background: rgba(113, 99, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-cta::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(113, 99, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.services-cta__container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.services-cta__title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.services-cta__subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+}
+
+.services-cta__buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button--primary {
+    background: linear-gradient(135deg, #7163ff, #63b3ff);
+    color: #fff !important;
+    border: none;
+}
+
+.cta-button--primary:hover,
+.cta-button--primary:focus,
+a.cta-button--primary:hover,
+a.cta-button--primary:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(113, 99, 255, 0.5);
+    color: #fff !important;
+    filter: brightness(1.05);
+}
+
+.cta-button--secondary {
+    background: transparent;
+    color: #fff !important;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-button--secondary:hover,
+.cta-button--secondary:focus,
+a.cta-button--secondary:hover,
+a.cta-button--secondary:focus {
+    border-color: #7163ff;
+    background: rgba(113, 99, 255, 0.1);
+    color: #fff !important;
+    box-shadow: 0 8px 24px rgba(113, 99, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .services-cta {
+        padding: 3rem 1rem;
+    }
+    .services-cta__title {
+        font-size: clamp(1.4rem, 6vw, 2.2rem);
+    }
+    .services-cta__subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .services-cta__buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}

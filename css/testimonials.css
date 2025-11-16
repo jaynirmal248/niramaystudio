@@ -5,8 +5,9 @@ body{
 	box-sizing: border-box;
 	font-family: 'Barlow Semi Condensed', sans-serif;
 }
-a:link,a:active,a:visited,a:hover{
-	color:#3f51b5;
+/* Scope testimonial link color to the testimonials area so it doesn't affect global buttons */
+.testimonials a:link, .testimonials a:active, .testimonials a:visited, .testimonials a:hover {
+	color: #3f51b5;
 }
 
 .outerdiv

@@ -26,9 +26,10 @@
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   position: relative;
   overflow: hidden;
-  will-change: height;
-  transition: height 320ms ease, transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+  will-change: height, transform;
+  transition: height 280ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1), background 200ms cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: auto;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .card-nav.open {
@@ -74,17 +75,19 @@
   width: 28px;
   height: 2px;
   background-color: currentColor;
-  transition: transform 0.25s ease, opacity 0.2s ease, margin 0.3s ease;
   transform-origin: 50% 50%;
   border-radius: 2px;
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
+  transition: transform 220ms cubic-bezier(0.4, 0, 0.2, 1), opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
   
   .hamburger-menu.open .hamburger-line:first-child {
-    transform: translateY(4px) rotate(45deg);
+    transform: translateY(4px) rotate(45deg) translateZ(0);
   }
   
   .hamburger-menu.open .hamburger-line:last-child {
-    transform: translateY(-4px) rotate(-45deg);
+    transform: translateY(-4px) rotate(-45deg) translateZ(0);
   }
   
 .logo-container {
@@ -109,15 +112,21 @@
   height: 44px;
   font-weight: 600;
   cursor: pointer;
-  transition: filter 0.18s ease, transform 0.18s ease;
+  transition: filter 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
   
-.card-nav-cta-button:hover {
-  filter: brightness(0.95);
+.card-nav-cta-button:hover,
+.card-nav-cta-button:focus,
+a.card-nav-cta-button:hover,
+a.card-nav-cta-button:focus {
+  filter: brightness(1.05);
   transform: translateY(-1px);
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(113, 99, 255, 0.5);
 }
   
 .card-nav-content {
@@ -134,13 +143,16 @@
   pointer-events: none;
   z-index: 1;
   opacity: 0;
-  transition: opacity 200ms ease;
+  transform: translateZ(0); /* Force hardware acceleration */
+  will-change: opacity, transform;
+  transition: opacity 240ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 240ms;
 }
   
 .card-nav.open .card-nav-content {
   visibility: visible;
   pointer-events: auto;
   opacity: 1;
+  transition: opacity 240ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0s;
 }
   
 .nav-card {
@@ -156,21 +168,23 @@
   user-select: none;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.02);
-  transition: transform 260ms cubic-bezier(.2,.9,.3,1), opacity 220ms ease;
-  transform: translateY(12px);
+  transform: translateY(12px) translateZ(0); /* Force hardware acceleration */
   opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-nav.open .nav-card {
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0); /* Force hardware acceleration */
   opacity: 1;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), opacity 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* When the site uses the card nav, add a class to body so page content starts below the nav */
 body.has-card-nav {
   /* dynamic --card-nav-default-offset is set by JS; fall back to 88px */
   padding-top: var(--card-nav-default-offset, 88px);
-  transition: padding-top 260ms ease;
+  transition: padding-top 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Larger screens: reduce side gap and make the nav slightly taller */
@@ -243,17 +257,23 @@ body.has-card-nav {
   }
 
   .hamburger-menu {
-    order: 2;
-  }
-
-  .logo-container {
-    position: static;
-    transform: none;
     order: 1;
   }
 
+
+  /* Keep CTA visible on tablets/phones but use a compact style; hide only on very small screens */
   .card-nav-cta-button {
-    display: none;
+    display: inline-flex;
+    padding: 0 0.75rem;
+    height: 40px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    order: 3;
+    margin-left: 0.5rem;
   }
 
   .card-nav-content {
@@ -278,6 +298,43 @@ body.has-card-nav {
 
   .nav-card-link {
     font-size: 14px;
+  }
+}
+/* Prevent horizontal overflow from centered fixed nav on very small screens */
+@media (max-width: 480px) {
+  .card-nav-container {
+    left: 8px;
+    right: 8px;
+    transform: none;
+    width: calc(100% - 16px);
+  }
+
+  .card-nav {
+    height: auto;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .card-nav-top {
+    padding: 0.45rem 0.5rem;
+    gap: 0.5rem;
+  }
+}
+/* Hide CTA only on very narrow viewports where there's no space */
+@media (max-width: 360px) {
+  .card-nav-cta-button {
+    display: none;
+  }
+
+  /* When CTA is hidden on very small screens, move the site name/logo to the right
+     so layout becomes: hamburger (left) · logo (right). Keeping logo absolute ensures
+     it doesn't affect flex layout and stays visually aligned. */
+  .logo-container {
+    left: auto;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 3;
   }
 }
   

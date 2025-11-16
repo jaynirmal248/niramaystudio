@@ -42,7 +42,15 @@
       return h;
     }
 
+    // Track scroll position for menu auto-close
+    let scrollPositionWhenOpened = 0;
+    let scrollTimeout = null;
+    const scrollThreshold = 80; // pixels to scroll before closing menu
+
     function openNav() {
+      // Store scroll position when menu opens
+      scrollPositionWhenOpened = window.pageYOffset || document.documentElement.scrollTop;
+      
       const h = calcHeight();
       nav.style.height = h + 'px';
       nav.classList.add('open');
@@ -90,10 +98,16 @@
       }
     });
 
-    // close when clicking outside
+    // close when clicking outside - improved with proper event handling
     document.addEventListener('click', function (e) {
       if (!nav.classList.contains('open')) return;
-      if (!nav.contains(e.target)) closeNav();
+      // Don't close if clicking on the hamburger (it handles its own toggle)
+      if (hamburger && hamburger.contains(e.target)) return;
+      // Check if click is outside the nav container
+      const clickedInside = nav.contains(e.target);
+      if (!clickedInside) {
+        closeNav();
+      }
     });
 
     // close on Escape for accessibility
@@ -103,6 +117,27 @@
         closeNav();
       }
     });
+
+    // Handle scroll to close menu after threshold
+    window.addEventListener('scroll', function () {
+      if (!nav.classList.contains('open')) return;
+
+      // Clear any pending timeout
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+
+      // Throttle scroll handling for better performance
+      scrollTimeout = setTimeout(function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDelta = Math.abs(currentScroll - scrollPositionWhenOpened);
+
+        // Close menu if scrolled beyond threshold
+        if (scrollDelta > scrollThreshold) {
+          closeNav();
+        }
+      }, 10); // Small delay to batch scroll events
+    }, { passive: true });
 
     // initialize closed state
     nav.style.height = topBarHeight + 'px';
