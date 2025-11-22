@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Discover the people, principles, and milestones that shape NovaStack Digital." />
-    <title>About | NovaStack Digital</title>
+    <meta name="description" content="About NovaStack Digital – our story, mission, and impact." />
+    <title>About Us | NovaStack Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-3hQ5f1jSUnzdg3NofM8JrIoYNewc19hXtOD87o5iV/mQJu1WDV5j1WFJsbgx5caX5/C/PObbIVdQGdbQfQAtXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/card-nav.css" />
-    <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/about.css" />
-    <link rel="stylesheet" href="css/cta.css" />
 </head>
-<body class="page">
-    <!-- Global card navigation (replaces previous header nav) -->
+<body>
     <div class="card-nav-container">
         <nav id="global-card-nav" class="card-nav">
             <div class="card-nav-top">
@@ -38,16 +35,17 @@
                     <div class="nav-card-label">Company</div>
                     <div class="nav-card-links">
                         <a class="nav-card-link" href="index.html">Home</a>
-                        <a class="nav-card-link" href="about.html">About</a>
+                        <a class="nav-card-link" href="about.html" aria-current="page">About</a>
                         <a class="nav-card-link" href="all-services.html">Services</a>
+                        <a class="nav-card-link" href="teams.html">Team</a>
                     </div>
                 </div>
                 <div class="nav-card">
                     <div class="nav-card-label">Work</div>
                     <div class="nav-card-links">
                         <a class="nav-card-link" href="all-profolio.html">Case studies</a>
-                        <a class="nav-card-link" href="#workshops">Workshops</a>
-                        <a class="nav-card-link" href="#advisory">Advisory</a>
+                        <a class="nav-card-link" href="all-services.html#workshops">Workshops</a>
+                        <a class="nav-card-link" href="all-services.html#advisory">Advisory</a>
                     </div>
                 </div>
                 <div class="nav-card">
@@ -61,155 +59,275 @@
         </nav>
     </div>
 
-    <main>
-        <section class="page-hero page-hero--about" aria-labelledby="about-title">
-            <div class="container page-hero__container">
-                <div class="page-hero__content" data-sr="fade-up">
-                    <p class="eyebrow">Our story</p>
-                    <h1 class="page-hero__title" id="about-title">We exist to help product leaders earn trust through every interaction.</h1>
-                    <p class="page-hero__subtitle">From venture-backed startups to global enterprises, NovaStack Digital partners with teams who see digital products as engines of growth, not just marketing assets. We thrive where clarity, craft, and accountability intersect.</p>
+    <main id="main-content" class="about-page">
+        <header class="about-hero" aria-labelledby="about-hero-title">
+            <div class="container about-hero__grid">
+                <div class="about-hero__content" data-reveal>
+                    <p class="eyebrow">NovaStack Digital</p>
+                    <h1 id="about-hero-title">We build clarity, craft, and conversion for product-first teams.</h1>
+                    <p class="lead">Founded in 2014, NovaStack is a distributed studio of strategists, engineers, and design leaders who turn complex problems into lovable products. We exist to help ambitious teams scale responsibly while staying wildly creative.</p>
+                    <div class="hero-history">
+                        <p><strong>Origin:</strong> Started in a Brooklyn loft with three clients and a bet that product strategy should feel as premium as the experiences we ship.</p>
+                        <p><strong>Today:</strong> Operating across six studios with partners in fintech, health, climate, and deep tech.</p>
+                    </div>
+                    <div class="hero-cta">
+                        <a class="button button--primary" href="#story">Explore our story</a>
+                        <a class="button button--ghost" href="all-profolio.html">See our work</a>
+                    </div>
                 </div>
-                <div class="page-hero__visual" data-sr="zoom-in">
-                    <img class="page-hero__image" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80&fm=webp" alt="NovaStack team collaborating in studio" loading="lazy" width="560" height="520" />
+                <div class="about-hero__stats" aria-label="Key stats" data-counter-group>
+                    <article class="stat-card" data-reveal>
+                        <span class="stat-card__value" data-counter="11">0</span>
+                        <span class="stat-card__label">Years shipping momentum</span>
+                    </article>
+                    <article class="stat-card" data-reveal>
+                        <span class="stat-card__value" data-counter="178">0</span>
+                        <span class="stat-card__label">Products launched</span>
+                    </article>
+                    <article class="stat-card" data-reveal>
+                        <span class="stat-card__value" data-counter="84">0</span>
+                        <span class="stat-card__label">Clients served</span>
+                    </article>
+                    <article class="stat-card" data-reveal>
+                        <span class="stat-card__value" data-counter="68">0</span>
+                        <span class="stat-card__label">Team members globally</span>
+                    </article>
+                </div>
+            </div>
+            <div class="about-hero__media" aria-hidden="true">
+                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1600&auto=format&fit=crop&q=80" alt="NovaStack team collaborating" loading="lazy" />
+            </div>
+        </header>
+
+        <section id="story" class="story-section" aria-labelledby="story-title">
+            <div class="container">
+                <div class="section-head">
+                    <div data-reveal>
+                        <p class="eyebrow">Our Story</p>
+                        <h2 id="story-title">From pop-up studio to global product partner.</h2>
+                        <p class="section-subtitle">We began as a small research pod helping founders translate insight into experiments. A decade later, we embed with scale-ups and enterprises to modernize their entire product chains.</p>
+                    </div>
+                    <div class="story-note" data-reveal>
+                        <p>We believe the best products come from teams who are grounded in reality, obsessed with craft, and optimistic about what technology can unlock.</p>
+                    </div>
+                </div>
+                <div class="story-timeline" aria-label="NovaStack timeline">
+                    <article class="timeline-item" data-reveal>
+                        <p class="timeline-year">2014</p>
+                        <h3>Launch</h3>
+                        <p>NovaStack opens as a two-week experiment blending venture strategy and product design.</p>
+                    </article>
+                    <article class="timeline-item" data-reveal>
+                        <p class="timeline-year">2016</p>
+                        <h3>First international studio</h3>
+                        <p>We expand to Lisbon to tap into nearshore engineering talent.</p>
+                    </article>
+                    <article class="timeline-item" data-reveal>
+                        <p class="timeline-year">2019</p>
+                        <h3>Platform practice</h3>
+                        <p>Launched our systems team to help clients move from monoliths to composable stacks.</p>
+                    </article>
+                    <article class="timeline-item" data-reveal>
+                        <p class="timeline-year">2022</p>
+                        <h3>Impact lab</h3>
+                        <p>Introduced climate and health venture labs to scale meaningful innovation.</p>
+                    </article>
+                    <article class="timeline-item" data-reveal>
+                        <p class="timeline-year">2024</p>
+                        <h3>Global collective</h3>
+                        <p>Now 6 studios, 14 partners, and clients on 4 continents.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="about-culture" aria-labelledby="culture-title">
-            <div class="container grid about-culture__grid">
-                <article class="about-culture__column" data-sr="fade-right">
-                    <h2 class="section-title" id="culture-title">Building with intent</h2>
-                    <p>We are strategists, designers, and engineers who obsess over outcomes. Every engagement begins with listening—understanding the realities facing your customers and teams—and continues with momentum driven by rapid experimentation.</p>
-                </article>
-                <aside class="about-culture__values" data-sr="fade-left" aria-label="Company values">
-                    <article class="value-card">
-                        <h3 class="value-card__title">Customer proof first</h3>
-                        <p>We anchor decisions in observed behavior, not internal assumptions, ensuring products resonate with the people they serve.</p>
+        <section class="mission-section" aria-labelledby="mission-title">
+            <div class="container">
+                <div class="mission-intro" data-reveal>
+                    <p class="eyebrow">Mission · Vision · Values</p>
+                    <h2 id="mission-title">We exist to help ambitious teams build products people love to use.</h2>
+                    <div class="mission-statements">
+                        <article>
+                            <h3>Mission</h3>
+                            <p>Design and ship digital ecosystems that raise the standard for clarity, craft, and conversion.</p>
+                        </article>
+                        <article>
+                            <h3>Vision</h3>
+                            <p>Become the most trusted build partner for companies treating product as their unfair advantage.</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="values-grid" role="list">
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+                        <h3>Start with insight</h3>
+                        <p>We obsess over the real problem before writing a line of code.</p>
                     </article>
-                    <article class="value-card">
-                        <h3 class="value-card__title">Craft meets velocity</h3>
-                        <p>Parallel strategy, design, and engineering squads deliver polish without sacrificing speed.</p>
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                        <h3>Build with rigor</h3>
+                        <p>Systems thinking + quality rituals keep launches reliable.</p>
                     </article>
-                    <article class="value-card">
-                        <h3 class="value-card__title">Transparency always</h3>
-                        <p>Clear communication, open dashboards, and shared rituals keep stakeholders aligned and empowered.</p>
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i></div>
+                        <h3>Craft the magic</h3>
+                        <p>We sweat UI micro-moments so experiences feel considered.</p>
                     </article>
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+                        <h3>Win together</h3>
+                        <p>Clients see our rituals, not a black box. Shared success is the only success.</p>
+                    </article>
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></div>
+                        <h3>Build responsibly</h3>
+                        <p>We factor sustainability, inclusion, and data ethics into every scope.</p>
+                    </article>
+                    <article class="value-card" role="listitem" data-reveal>
+                        <div class="value-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
+                        <h3>Move with momentum</h3>
+                        <p>Velocity without chaos – we prototype fast and scale with intention.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-overview" aria-labelledby="services-title">
+            <div class="container services-grid">
+                <div data-reveal>
+                    <p class="eyebrow">What we do</p>
+                    <h2 id="services-title">Product partnerships across the full lifecycle.</h2>
+                    <p class="section-subtitle">From zero-to-one ventures to enterprise modernization, we plug in where teams need focused acceleration.</p>
+                    <ul class="pill-list" aria-label="Industries we serve">
+                        <li>Fintech</li>
+                        <li>Health &amp; Wellness</li>
+                        <li>Climate</li>
+                        <li>Commerce</li>
+                        <li>SaaS</li>
+                        <li>Deep Tech</li>
+                    </ul>
+                </div>
+                <div class="service-cards" role="list">
+                    <article class="service-card" role="listitem" data-reveal>
+                        <h3>Strategy &amp; Research</h3>
+                        <p>Insight programs, opportunity mapping, experimentation roadmaps.</p>
+                        <span class="service-tag">USP: Researchers embedded with leadership</span>
+                    </article>
+                    <article class="service-card" role="listitem" data-reveal>
+                        <h3>Design &amp; Product</h3>
+                        <p>End-to-end experience design, systems, and product management.</p>
+                        <span class="service-tag">USP: Dual-track discovery/delivery</span>
+                    </article>
+                    <article class="service-card" role="listitem" data-reveal>
+                        <h3>Engineering &amp; Platform</h3>
+                        <p>Cloud-native builds, platform refactors, DevSecOps, data infrastructure.</p>
+                        <span class="service-tag">USP: Platform guild + rapid response pods</span>
+                    </article>
+                    <article class="service-card" role="listitem" data-reveal>
+                        <h3>Growth &amp; Enablement</h3>
+                        <p>Revenue experiments, enablement playbooks, capability-building workshops.</p>
+                        <span class="service-tag">USP: Embedded coaching for client teams</span>
+                    </article>
+                </div>
+                <aside class="approach-card" aria-label="Our methodology" data-reveal>
+                    <h3>Our Operating System</h3>
+                    <ol>
+                        <li><strong>Listen deeply.</strong> Research sprints expose the real friction.</li>
+                        <li><strong>Prototype boldly.</strong> We validate in weeks, not quarters.</li>
+                        <li><strong>Scale responsibly.</strong> Tooling, rituals, and training ensure adoption.</li>
+                    </ol>
+                    <a class="button button--ghost" href="all-services.html">View services</a>
                 </aside>
             </div>
         </section>
 
-        <section class="leadership" aria-labelledby="leadership-title">
+        <section class="impact-section" aria-labelledby="impact-title">
             <div class="container">
-                <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="leadership-title">Leadership team</h2>
-                    <p>A multi-disciplinary group balancing creative intuition with operational excellence.</p>
+                <div class="section-head">
+                    <div data-reveal>
+                        <p class="eyebrow">Impact &amp; Recognition</p>
+                        <h2 id="impact-title">Proof that craft plus strategy delivers outcomes.</h2>
+                        <p class="section-subtitle">We partner with teams who expect measurable traction. Here are a few signals.</p>
+                    </div>
                 </div>
-                <div class="leadership__grid grid" data-sr="fade-up" data-sr-delay="120">
-                    <article class="leader-card">
-                        <img class="leader-card__image" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Portrait of Ella Morgan" loading="lazy" width="320" height="320" />
-                        <div class="leader-card__body">
-                            <h3 class="leader-card__name">Ella Morgan</h3>
-                            <p class="leader-card__role">Founder &amp; Chief Experience Officer</p>
-                            <p class="leader-card__bio">Leads vision, product strategy, and experience design. Previously directed digital transformation at Fortune 100 brands.</p>
-                        </div>
-                    </article>
-                    <article class="leader-card">
-                        <img class="leader-card__image" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Portrait of Cameron Li" loading="lazy" width="320" height="320" />
-                        <div class="leader-card__body">
-                            <h3 class="leader-card__name">Cameron Li</h3>
-                            <p class="leader-card__role">Head of Engineering</p>
-                            <p class="leader-card__bio">Architects scalable, secure platforms and leads our engineering guild. Champion of accessible, high-performance builds.</p>
-                        </div>
-                    </article>
-                    <article class="leader-card">
-                        <img class="leader-card__image" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80&fm=webp" alt="Portrait of Samira Torres" loading="lazy" width="320" height="320" />
-                        <div class="leader-card__body">
-                            <h3 class="leader-card__name">Samira Torres</h3>
-                            <p class="leader-card__role">Head of Growth Strategy</p>
-                            <p class="leader-card__bio">Guides experimentation, analytics, and lifecycle programs that transform insights into measurable growth.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="timeline" aria-labelledby="timeline-title">
-            <div class="container timeline__container">
-                <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="timeline-title">Milestones</h2>
-                    <p>Moments that shaped our approach to building enduring digital products.</p>
-                </div>
-                <ol class="timeline__list" data-sr="fade-up" data-sr-delay="120">
-                    <li class="timeline__item">
-                        <time class="timeline__date" datetime="2017">2017</time>
-                        <div class="timeline__content">
-                            <h3>NovaStack launches</h3>
-                            <p>Formed to help SaaS founders validate roadmap priorities through rapid prototyping.</p>
-                        </div>
-                    </li>
-                    <li class="timeline__item">
-                        <time class="timeline__date" datetime="2019">2019</time>
-                        <div class="timeline__content">
-                            <h3>Design systems at scale</h3>
-                            <p>Built our first enterprise-wide design system, reducing design-to-dev handoff time by 60%.</p>
-                        </div>
-                    </li>
-                    <li class="timeline__item">
-                        <time class="timeline__date" datetime="2021">2021</time>
-                        <div class="timeline__content">
-                            <h3>Growth practice formalized</h3>
-                            <p>Expanded into lifecycle, experimentation, and revenue operations to support post-launch acceleration.</p>
-                        </div>
-                    </li>
-                    <li class="timeline__item">
-                        <time class="timeline__date" datetime="2024">2024</time>
-                        <div class="timeline__content">
-                            <h3>Global collective</h3>
-                            <p>Launched distributed guilds across three continents, enabling 24/5 delivery cycles without burnout.</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <section class="credentials" aria-labelledby="credentials-title">
-            <div class="container">
-                <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="credentials-title">Recognition</h2>
-                    <p>Independent accolades that reflect our commitment to impactful design and engineering.</p>
-                </div>
-                <div class="credentials__grid grid" data-sr="fade-up" data-sr-delay="140">
-                    <article class="credential-card">
-                        <h3 class="credential-card__title">Awwwards</h3>
-                        <p class="credential-card__copy">Site of the Day, Digital Product Category</p>
-                        <span class="credential-card__meta">2023</span>
-                    </article>
-                    <article class="credential-card">
-                        <h3 class="credential-card__title">Fast Company</h3>
-                        <p class="credential-card__copy">Most Innovative Companies – Design</p>
-                        <span class="credential-card__meta">2024</span>
-                    </article>
-                    <article class="credential-card">
-                        <h3 class="credential-card__title">Webby Awards</h3>
-                        <p class="credential-card__copy">Best UX in a Website or App</p>
-                        <span class="credential-card__meta">2024</span>
-                    </article>
-                    <article class="credential-card">
-                        <h3 class="credential-card__title">AWS Partner</h3>
-                        <p class="credential-card__copy">Select Tier Service Partner – Digital Native</p>
-                        <span class="credential-card__meta">2022</span>
-                    </article>
+                <div class="impact-grid">
+                    <div class="impact-counters" data-counter-group>
+                        <article class="impact-card" data-reveal>
+                            <span class="impact-card__value" data-counter="235">0</span>
+                            <p>Launch programs delivered</p>
+                        </article>
+                        <article class="impact-card" data-reveal>
+                            <span class="impact-card__value" data-counter="48">0</span>
+                            <p>Enterprise transformations</p>
+                        </article>
+                        <article class="impact-card" data-reveal>
+                            <span class="impact-card__value" data-counter="19">0</span>
+                            <p>Awards &amp; honors</p>
+                        </article>
+                        <article class="impact-card" data-reveal>
+                            <span class="impact-card__value" data-counter="340">0</span>
+                            <p>Team training sessions</p>
+                        </article>
+                    </div>
+                    <div class="recognition" data-reveal>
+                        <h3>Recognition</h3>
+                        <ul>
+                            <li>Webby Awards · Best Product Experience</li>
+                            <li>Fast Company Innovation by Design · Finalist</li>
+                            <li>Forrester Wave · Featured implementation partner</li>
+                            <li>Certified B Leader in progress (2025)</li>
+                        </ul>
+                    </div>
+                    <div class="case-teasers" role="list">
+                        <article class="case-card" role="listitem" data-reveal>
+                            <p class="case-card__tag">Fintech</p>
+                            <h3>Helix Banking OS</h3>
+                            <p>Scaled a modular banking stack for 3M SMB accounts. +42% NPS.</p>
+                            <a href="all-profolio.html" class="case-card__link">Read case</a>
+                        </article>
+                        <article class="case-card" role="listitem" data-reveal>
+                            <p class="case-card__tag">Health</p>
+                            <h3>Pulse Diagnostics</h3>
+                            <p>Unified patient telemetry &amp; clinician insights. 4x faster triage.</p>
+                            <a href="all-profolio.html" class="case-card__link">Read case</a>
+                        </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="services-cta" aria-labelledby="services-cta-title">
-            <div class="services-cta__container">
-                <h2 class="services-cta__title" id="services-cta-title">Ready to build something exceptional?</h2>
-                <p class="services-cta__subtitle">Let's discuss your project goals and explore how we can help you achieve them. We respond within one business day.</p>
-                <div class="services-cta__buttons">
-                    <a href="contact.html" class="cta-button cta-button--primary">Start a Project <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="mailto:talent@novastack.digital" class="cta-button cta-button--secondary">Partner with us</a>
+        <section class="team-glimpse" aria-labelledby="team-glimpse-title">
+            <div class="container team-glimpse__grid">
+                <div data-reveal>
+                    <p class="eyebrow">Team culture</p>
+                    <h2 id="team-glimpse-title">We are a distributed collective that loves structured creativity.</h2>
+                    <p class="section-subtitle">Weekly design dinners, engineering deep dives, and offsites in nature keep us inspired. Most importantly, we build rituals that make hybrid collaboration feel human.</p>
+                    <div class="team-highlights">
+                        <p>Community guilds · Mentorship ladders · Wellness stipend · Climate volunteering days.</p>
+                    </div>
+                    <div class="team-cta">
+                        <a class="button button--primary" href="teams.html">Meet our team</a>
+                        <a class="button button--ghost" href="contact.html">Partner with us</a>
+                    </div>
+                </div>
+                <div class="team-glimpse__gallery" aria-hidden="true">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=800&auto=format&fit=crop&q=80" alt="Team workshop" loading="lazy" />
+                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop&q=80" alt="Strategy session" loading="lazy" />
+                    <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=800&auto=format&fit=crop&q=80" alt="Team offsite" loading="lazy" />
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" aria-labelledby="cta-title">
+            <div class="container cta-grid" data-reveal>
+                <div>
+                    <p class="eyebrow">Let's build together</p>
+                    <h2 id="cta-title">Ready to unlock your next product chapter?</h2>
+                    <p>Whether you need a discovery sprint, a platform refactor, or a full venture studio, we're here to help.</p>
+                </div>
+                <div class="cta-actions">
+                    <a class="button button--primary" href="contact.html">Start a project</a>
+                    <a class="button button--ghost" href="all-services.html">Explore services</a>
                 </div>
             </div>
         </section>
@@ -240,14 +358,14 @@
                 <ul class="site-footer__list">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="all-services.html">Services</a></li>
-                    <li><a href="about.html" class="is-active">About</a></li>
+                    <li><a href="teams.html">Team</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="site-footer__nav">
                 <h3 class="site-footer__heading">Resources</h3>
                 <ul class="site-footer__list">
-                    <li><a href="index.html#case-studies">Case studies</a></li>
+                    <li><a href="all-profolio.html">Case studies</a></li>
                     <li><a href="all-services.html#workshops">Workshops</a></li>
                     <li><a href="all-services.html#advisory">Advisory</a></li>
                     <li><a href="mailto:press@novastack.digital">Press</a></li>
@@ -257,8 +375,8 @@
                 <h3 class="site-footer__heading">Newsletter</h3>
                 <p>Monthly dispatch with product trends, growth experiments, and design systems know-how.</p>
                 <form class="site-footer__form" action="#" method="post">
-                    <label class="sr-only" for="footer-email-about">Email address</label>
-                    <input class="site-footer__input" type="email" id="footer-email-about" name="email" placeholder="you@company.com" required />
+                    <label class="sr-only" for="footer-email">Email address</label>
+                    <input class="site-footer__input" type="email" id="footer-email" name="email" placeholder="you@company.com" required />
                     <button class="button button--primary" type="submit">Subscribe</button>
                 </form>
             </div>
@@ -276,7 +394,8 @@
 
     <script src="js/card-nav-init.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-7JZ9eczsQnUnxE27XGr0C+MEY0S8NxV+4CSkiqhSSjMBDuNIQP5CKEM5Qn2ATqNnS/xPbbGr3HdWu3Uw3OZ8kg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="js/main.js" defer></script>
-    <script src="js/scroll.js" defer></script>
+    <script src="js/about.js" defer></script>
 </body>
 </html>

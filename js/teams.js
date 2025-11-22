@@ -1,174 +1,120 @@
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import './ChromaGrid.css';
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('team-search');
+    const filterButtons = Array.from(document.querySelectorAll('.filter-button'));
+    const teamCards = Array.from(document.querySelectorAll('.team-card'));
+    let activeFilter = 'all';
 
-export const ChromaGrid = ({
-  items,
-  className = '',
-  radius = 300,
-  columns = 3,
-  rows = 2,
-  damping = 0.45,
-  fadeOut = 0.6,
-  ease = 'power3.out'
-}) => {
-  const rootRef = useRef(null);
-  const fadeRef = useRef(null);
-  const setX = useRef(null);
-  const setY = useRef(null);
-  const pos = useRef({ x: 0, y: 0 });
+    const normalize = (value = '') => value.toLowerCase().trim();
 
-  const demo = [
-    {
-      image: 'https://i.pravatar.cc/300?img=8',
-      title: 'Alex Rivera',
-      subtitle: 'Full Stack Developer',
-      handle: '@alexrivera',
-      borderColor: '#4F46E5',
-      gradient: 'linear-gradient(145deg, #4F46E5, #000)',
-      url: 'https://github.com/'
-    },
-    {
-      image: 'https://i.pravatar.cc/300?img=11',
-      title: 'Jordan Chen',
-      subtitle: 'DevOps Engineer',
-      handle: '@jordanchen',
-      borderColor: '#10B981',
-      gradient: 'linear-gradient(210deg, #10B981, #000)',
-      url: 'https://linkedin.com/in/'
-    },
-    {
-      image: 'https://i.pravatar.cc/300?img=3',
-      title: 'Morgan Blake',
-      subtitle: 'UI/UX Designer',
-      handle: '@morganblake',
-      borderColor: '#F59E0B',
-      gradient: 'linear-gradient(165deg, #F59E0B, #000)',
-      url: 'https://dribbble.com/'
-    },
-    {
-      image: 'https://i.pravatar.cc/300?img=16',
-      title: 'Casey Park',
-      subtitle: 'Data Scientist',
-      handle: '@caseypark',
-      borderColor: '#EF4444',
-      gradient: 'linear-gradient(195deg, #EF4444, #000)',
-      url: 'https://kaggle.com/'
-    },
-    {
-      image: 'https://i.pravatar.cc/300?img=25',
-      title: 'Sam Kim',
-      subtitle: 'Mobile Developer',
-      handle: '@thesamkim',
-      borderColor: '#8B5CF6',
-      gradient: 'linear-gradient(225deg, #8B5CF6, #000)',
-      url: 'https://github.com/'
-    },
-    {
-      image: 'https://i.pravatar.cc/300?img=60',
-      title: 'Tyler Rodriguez',
-      subtitle: 'Cloud Architect',
-      handle: '@tylerrod',
-      borderColor: '#06B6D4',
-      gradient: 'linear-gradient(135deg, #06B6D4, #000)',
-      url: 'https://aws.amazon.com/'
+    const applyFilters = () => {
+        const query = normalize(searchInput ? searchInput.value : '');
+        teamCards.forEach((card) => {
+            const category = card.dataset.category || 'all';
+            const name = card.dataset.name || '';
+            const textMatch = card.textContent.toLowerCase().includes(query) || name.includes(query);
+            const filterMatch = activeFilter === 'all' || category === activeFilter;
+            const shouldShow = (!query || textMatch) && filterMatch;
+            card.style.display = shouldShow ? '' : 'none';
+            card.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+        });
+    };
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => {
+            window.requestAnimationFrame(applyFilters);
+        });
     }
-  ];
-  const data = items?.length ? items : demo;
 
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    setX.current = gsap.quickSetter(el, '--x', 'px');
-    setY.current = gsap.quickSetter(el, '--y', 'px');
-    const { width, height } = el.getBoundingClientRect();
-    pos.current = { x: width / 2, y: height / 2 };
-    setX.current(pos.current.x);
-    setY.current(pos.current.y);
-  }, []);
-
-  const moveTo = (x, y) => {
-    gsap.to(pos.current, {
-      x,
-      y,
-      duration: damping,
-      ease,
-      onUpdate: () => {
-        setX.current?.(pos.current.x);
-        setY.current?.(pos.current.y);
-      },
-      overwrite: true
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            activeFilter = button.dataset.filter || 'all';
+            filterButtons.forEach((btn) => btn.classList.remove('is-active'));
+            filterButtons.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+            button.classList.add('is-active');
+            button.setAttribute('aria-pressed', 'true');
+            applyFilters();
+        });
     });
-  };
 
-  const handleMove = e => {
-    const r = rootRef.current.getBoundingClientRect();
-    moveTo(e.clientX - r.left, e.clientY - r.top);
-    gsap.to(fadeRef.current, { opacity: 0, duration: 0.25, overwrite: true });
-  };
+    applyFilters();
 
-  const handleLeave = () => {
-    gsap.to(fadeRef.current, {
-      opacity: 1,
-      duration: fadeOut,
-      overwrite: true
+    let previousFocusElement = null;
+
+    const openModal = (modal) => {
+        if (!modal) return;
+        previousFocusElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        const closeButton = modal.querySelector('.team-modal__close');
+        if (closeButton) {
+            closeButton.focus();
+        }
+    };
+
+    const closeModal = (modal) => {
+        if (!modal) return;
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        if (previousFocusElement) {
+            previousFocusElement.focus();
+            previousFocusElement = null;
+        }
+    };
+
+    const modalTriggers = document.querySelectorAll('[data-modal-target]');
+    modalTriggers.forEach((trigger) => {
+        if (!trigger.id) {
+            trigger.id = `modal-trigger-${Math.random().toString(36).slice(2, 8)}`;
+        }
+        trigger.addEventListener('click', () => {
+            const modal = document.querySelector(trigger.dataset.modalTarget);
+            openModal(modal);
+        });
     });
-  };
 
-  const handleCardClick = url => {
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+    document.querySelectorAll('[data-modal-close]').forEach((closer) => {
+        closer.addEventListener('click', () => {
+            const modal = closer.closest('.team-modal');
+            closeModal(modal);
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            const openModalEl = document.querySelector('.team-modal[aria-hidden="false"]');
+            if (openModalEl) {
+                closeModal(openModalEl);
+            }
+        }
+    });
+
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target instanceof HTMLElement && target.dataset.modalClose !== undefined) {
+            const modal = target.closest('.team-modal');
+            closeModal(modal);
+        }
+        if (target instanceof HTMLElement && target.classList.contains('team-modal__overlay')) {
+            const modal = target.closest('.team-modal');
+            closeModal(modal);
+        }
+    });
+
+    const revealItems = document.querySelectorAll('[data-reveal]');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+        revealItems.forEach((item) => observer.observe(item));
+    } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
     }
-  };
-
-  const handleCardMove = e => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    card.style.setProperty('--mouse-x', `${x}px`);
-    card.style.setProperty('--mouse-y', `${y}px`);
-  };
-
-  return (
-    <div
-      ref={rootRef}
-      className={`chroma-grid ${className}`}
-      style={{
-        '--r': `${radius}px`,
-        '--cols': columns,
-        '--rows': rows
-      }}
-      onPointerMove={handleMove}
-      onPointerLeave={handleLeave}
-    >
-      {data.map((c, i) => (
-        <article
-          key={i}
-          className="chroma-card"
-          onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
-          style={{
-            '--card-border': c.borderColor || 'transparent',
-            '--card-gradient': c.gradient,
-            cursor: c.url ? 'pointer' : 'default'
-          }}
-        >
-          <div className="chroma-img-wrapper">
-            <img src={c.image} alt={c.title} loading="lazy" />
-          </div>
-          <footer className="chroma-info">
-            <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
-            <p className="role">{c.subtitle}</p>
-            {c.location && <span className="location">{c.location}</span>}
-          </footer>
-        </article>
-      ))}
-      <div className="chroma-overlay" />
-      <div ref={fadeRef} className="chroma-fade" />
-    </div>
-  );
-};
-
-export default ChromaGrid;
+});

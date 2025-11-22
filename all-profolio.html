@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>All Profolio — NovaStack Digital</title>
+    <title>Professional Work — NovaStack Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/card-nav.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/cta.css" />
+    <link rel="stylesheet" href="css/portfolio-pro.css" />
 </head>
+
 <body>
+    <!-- Navigation -->
     <div class="card-nav-container">
         <nav id="global-card-nav" class="card-nav">
             <div class="card-nav-top">
@@ -59,67 +64,225 @@
     </div>
 
     <main>
-        <section class="testimonial-panel" id="testimonial-panel" aria-labelledby="testimonial-panel-heading">
-            <div class="container">
-                <div class="section-intro" data-sr="fade-up">
-                    <h2 class="section-title" id="testimonial-panel-heading">What partners say</h2>
-                    <p>Momentum fueled by genuine relationships. Hear from the leaders who trust NovaStack Digital.</p>
+        <!-- Hero Section -->
+        <section class="pro-hero">
+            <div class="pro-container pro-hero-content">
+                <span class="pro-hero-badge reveal">Selected Work</span>
+                <h1 class="pro-section-title reveal">Crafting Digital Excellence</h1>
+                <p class="pro-section-subtitle reveal">
+                    We build immersive digital experiences, high-performance websites, and AI-driven workflows that
+                    transform businesses.
+                </p>
+            </div>
+        </section>
+
+        <!-- Portfolio Showcase -->
+        <section class="pro-showcase" id="work">
+            <div class="pro-container">
+                <!-- Filters -->
+                <div class="pro-filters reveal">
+                    <button class="pro-filter-btn active" data-filter="all">All Work</button>
+                    <button class="pro-filter-btn" data-filter="website">Websites</button>
+                    <button class="pro-filter-btn" data-filter="graphic">Graphics</button>
+                    <button class="pro-filter-btn" data-filter="workflow">Workflows</button>
                 </div>
-                <div class="case-grid grid" data-sr="fade-up" data-sr-delay="140">
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">SaaS</div>
-                            <h3 class="case-card__title" data-case-title="ASPK International Trade">ASPK International Trade</h3>
-                        <p class="case-card__excerpt">Redesigned the analytics experience, reducing time-to-insight by 47% and driving enterprise expansion.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">AP</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Anya Patel</div>
-                                    <div class="case-card__person-role">VP Product, ASPK International Trade</div>
-                                </div>
+
+                <!-- Grid -->
+                <div class="pro-grid">
+                    <!-- Website Item 1 -->
+                    <article class="pro-card pro-item website reveal">
+                        <div class="pro-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                                alt="ASPK Trade" class="pro-card-img" />
+                        </div>
+                        <div class="pro-card-content">
+                            <div class="pro-card-tags">
+                                <span class="pro-tag">SaaS</span>
+                                <span class="pro-tag">Web Design</span>
                             </div>
+                            <h3 class="pro-card-title">ASPK International</h3>
+                            <p class="pro-card-desc">Redesigned analytics dashboard reducing time-to-insight by 47%.</p>
+                            <a href="#" class="pro-card-link">View Case Study <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </article>
 
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">eCommerce</div>
-                            <h3 class="case-card__title" data-case-title="Muse Studio">Muse Studio</h3>
-                        <p class="case-card__excerpt">Crafted modular storytelling blocks that increased average order value by 32% within the first quarter.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">MJ</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Marco Jensen</div>
-                                    <div class="case-card__person-role">CMO, Muse Studio</div>
-                                </div>
+                    <!-- Website Item 2 -->
+                    <article class="pro-card pro-item website reveal">
+                        <div class="pro-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80"
+                                alt="Muse Studio" class="pro-card-img" />
+                        </div>
+                        <div class="pro-card-content">
+                            <div class="pro-card-tags">
+                                <span class="pro-tag">eCommerce</span>
+                                <span class="pro-tag">Development</span>
                             </div>
+                            <h3 class="pro-card-title">Muse Studio</h3>
+                            <p class="pro-card-desc">Modular storytelling blocks increasing AOV by 32%.</p>
+                            <a href="#" class="pro-card-link">View Case Study <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </article>
 
-                    <article class="case-card" style="--card-bg: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80&fm=webp');">
-                        <div class="case-card__tag">Fintech</div>
-                            <h3 class="case-card__title" data-case-title="Orbit Capital">Orbit Capital</h3>
-                        <p class="case-card__excerpt">Implemented compliance-first onboarding, cutting drop-off rates by half while improving NPS.</p>
-                            <div class="case-card__person">
-                                <div class="case-card__person-logo" aria-hidden="true">RH</div>
-                                <div class="case-card__person-info">
-                                    <div class="case-card__person-name">Rosa Hernández</div>
-                                    <div class="case-card__person-role">Chief Risk Officer, Orbit Capital</div>
-                                </div>
+                    <!-- Graphic Item 1 -->
+                    <article class="pro-card pro-item graphic reveal">
+                        <div class="pro-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b7993125651?auto=format&fit=crop&w=800&q=80"
+                                alt="Brand Identity" class="pro-card-img" />
+                        </div>
+                        <div class="pro-card-content">
+                            <div class="pro-card-tags">
+                                <span class="pro-tag">Branding</span>
+                                <span class="pro-tag">Identity</span>
                             </div>
+                            <h3 class="pro-card-title">Neon Flux Identity</h3>
+                            <p class="pro-card-desc">Complete visual identity system for a fintech startup.</p>
+                            <a href="#" class="pro-card-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
                     </article>
 
+                    <!-- Workflow Item 1 -->
+                    <article class="pro-card pro-item workflow reveal">
+                        <div class="pro-card-img-container">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                                alt="Workflow Automation" class="pro-card-img" />
+                        </div>
+                        <div class="pro-card-content">
+                            <div class="pro-card-tags">
+                                <span class="pro-tag">Automation</span>
+                                <span class="pro-tag">AI</span>
+                            </div>
+                            <h3 class="pro-card-title">CRM Automation</h3>
+                            <p class="pro-card-desc">Automated lead qualification workflow saving 20h/week.</p>
+                            <a href="#" class="pro-card-link">View Workflow <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
-        <section class="services-cta" aria-labelledby="services-cta-title">
-            <div class="services-cta__container">
-                <h2 class="services-cta__title" id="services-cta-title">Ready to build something exceptional?</h2>
-                <p class="services-cta__subtitle">Let's discuss your project goals and explore how we can help you achieve them. We respond within one business day.</p>
-                <div class="services-cta__buttons">
-                    <a href="contact.html" class="cta-button cta-button--primary">Start a Project <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="mailto:hello@novastack.digital" class="cta-button cta-button--secondary">Schedule a Call</a>
+
+        <!-- Graphic Showcase (Masonry Style) -->
+        <section class="pro-section" style="padding: 4rem 0;">
+            <div class="pro-container">
+                <h2 class="pro-section-title reveal">Visual Craft</h2>
+                <p class="pro-section-subtitle reveal">A curated selection of graphic design and visual storytelling.
+                </p>
+
+                <div class="pro-graphic-grid reveal">
+                    <div class="pro-graphic-item tall">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
+                            class="pro-graphic-img" alt="Abstract Art" />
+                        <div class="pro-graphic-overlay">
+                            <h3 class="pro-card-title">Abstract Series</h3>
+                        </div>
+                    </div>
+                    <div class="pro-graphic-item wide">
+                        <img src="https://images.unsplash.com/photo-1634152962476-4b8a00e1915c?auto=format&fit=crop&w=800&q=80"
+                            class="pro-graphic-img" alt="UI Design" />
+                        <div class="pro-graphic-overlay">
+                            <h3 class="pro-card-title">Dashboard UI</h3>
+                        </div>
+                    </div>
+                    <div class="pro-graphic-item">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?auto=format&fit=crop&w=800&q=80"
+                            class="pro-graphic-img" alt="Poster Design" />
+                        <div class="pro-graphic-overlay">
+                            <h3 class="pro-card-title">Event Poster</h3>
+                        </div>
+                    </div>
+                    <div class="pro-graphic-item">
+                        <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=800&q=80"
+                            class="pro-graphic-img" alt="Typography" />
+                        <div class="pro-graphic-overlay">
+                            <h3 class="pro-card-title">Typography</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Workflow Showcase -->
+        <section class="pro-workflow">
+            <div class="pro-container">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 class="pro-section-title reveal">Our Process</h2>
+                    <p class="pro-section-subtitle reveal" style="margin: 0 auto;">How we bring ideas to life through a
+                        structured, efficient workflow.</p>
+                </div>
+
+                <div class="pro-timeline">
+                    <!-- Step 1 -->
+                    <div class="pro-step reveal">
+                        <div class="pro-step-marker">1</div>
+                        <div class="pro-step-content">
+                            <h3 class="pro-card-title">Discovery & Strategy</h3>
+                            <p class="pro-card-desc">We dive deep into your business goals, audience, and competitors to
+                                build a solid foundation.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="pro-step reveal">
+                        <div class="pro-step-marker">2</div>
+                        <div class="pro-step-content">
+                            <h3 class="pro-card-title">Design & Prototyping</h3>
+                            <p class="pro-card-desc">Crafting high-fidelity visuals and interactive prototypes to
+                                validate the user experience.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="pro-step reveal">
+                        <div class="pro-step-marker">3</div>
+                        <div class="pro-step-content">
+                            <h3 class="pro-card-title">Development & AI Integration</h3>
+                            <p class="pro-card-desc">Building robust, scalable code and integrating AI tools to automate
+                                and enhance functionality.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="pro-step reveal">
+                        <div class="pro-step-marker">4</div>
+                        <div class="pro-step-content">
+                            <h3 class="pro-card-title">Launch & Scale</h3>
+                            <p class="pro-card-desc">Deploying with confidence and monitoring performance to ensure
+                                continuous growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Integration Section -->
+        <section class="pro-ai-section">
+            <div class="pro-container">
+                <h2 class="pro-section-title reveal">AI-Powered Transformation</h2>
+                <p class="pro-section-subtitle reveal" style="margin: 0 auto;">We leverage Artificial Intelligence to
+                    simplify your business journey and unlock new potential.</p>
+
+                <div class="pro-ai-grid">
+                    <div class="pro-ai-card reveal">
+                        <i class="fa-solid fa-wand-magic-sparkles pro-ai-icon"></i>
+                        <h3 class="pro-card-title">Automated Workflows</h3>
+                        <p class="pro-card-desc">Reduce manual tasks by up to 80% with intelligent automation agents.
+                        </p>
+                    </div>
+                    <div class="pro-ai-card reveal">
+                        <i class="fa-solid fa-brain pro-ai-icon"></i>
+                        <h3 class="pro-card-title">Data Insights</h3>
+                        <p class="pro-card-desc">Turn raw data into actionable strategies with predictive analytics.</p>
+                    </div>
+                    <div class="pro-ai-card reveal">
+                        <i class="fa-solid fa-robot pro-ai-icon"></i>
+                        <h3 class="pro-card-title">Smart Interfaces</h3>
+                        <p class="pro-card-desc">Create personalized user experiences that adapt in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container grid site-footer__grid">
             <div class="site-footer__brand">
@@ -127,12 +290,15 @@
                     <span class="site-logo__mark" aria-hidden="true">NS</span>
                     <span class="site-logo__text">NovaStack Digital</span>
                 </a>
-                <p class="site-footer__copy">Full-service digital partner for teams ready to scale clarity, craft, and conversion.</p>
+                <p class="site-footer__copy">Full-service digital partner for teams ready to scale clarity, craft, and
+                    conversion.</p>
                 <div class="site-footer__social" aria-label="Social media">
-                    <a class="site-footer__social-link" href="https://www.linkedin.com/company/novastack-digital" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a class="site-footer__social-link" href="https://www.linkedin.com/company/novastack-digital"
+                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
-                    <a class="site-footer__social-link" href="https://www.instagram.com/novastackdigital" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <a class="site-footer__social-link" href="https://www.instagram.com/novastackdigital"
+                        target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
                     <a class="site-footer__social-link" href="mailto:hello@novastack.digital" aria-label="Email">
@@ -163,7 +329,8 @@
                 <p>Monthly dispatch with product trends, growth experiments, and design systems know-how.</p>
                 <form class="site-footer__form" action="#" method="post">
                     <label class="sr-only" for="footer-email">Email address</label>
-                    <input class="site-footer__input" type="email" id="footer-email" name="email" placeholder="you@company.com" required />
+                    <input class="site-footer__input" type="email" id="footer-email" name="email"
+                        placeholder="you@company.com" required />
                     <button class="button button--primary" type="submit">Subscribe</button>
                 </form>
             </div>
@@ -181,9 +348,12 @@
 
     <script src="js/card-nav-init.js" defer></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" crossorigin="anonymous"
+        referrerpolicy="no-referrer" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/Flowing-menu.js" defer></script>
     <script src="js/scroll.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
 </body>
+
 </html>

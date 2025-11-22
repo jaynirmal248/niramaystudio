@@ -22,11 +22,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-        circle 400px at var(--mouse-x) var(--mouse-y),
-        var(--spotlight-color),
-        transparent 80%
-    );
+    background: radial-gradient(circle 400px at var(--mouse-x) var(--mouse-y),
+            var(--spotlight-color),
+            transparent 80%);
     opacity: 0;
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
@@ -46,7 +44,7 @@
 }
 
 /* Ensure content is above the spotlight effect */
-.card-spotlight > * {
+.card-spotlight>* {
     position: relative;
     z-index: 1;
 }
@@ -78,7 +76,8 @@
 
 .card-spotlight:hover::after,
 .card-spotlight:focus-within::after {
-    opacity: 0.5; /* Reduce opacity so spotlight shows through */
+    opacity: 0.5;
+    /* Reduce opacity so spotlight shows through */
 }
 
 /* Maintain existing service card styles when spotlight is applied */
